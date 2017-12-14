@@ -19,7 +19,6 @@
 - MySQL
 - Spring Cache
 - [Redis](https://github.com/Exrick/xmall/blob/master/study/Redis.md)：缓存
-- [ActiveMQ](https://github.com/Exrick/xmall/blob/master/study/ActiveMQ.md)：消息队列
 - [Druid](http://druid.io/)：阿里高性能数据库连接池
 - Thymeleaf
 - [Swagger2](https://github.com/Exrick/xmall/blob/master/study/Swagger2.md)：Api文档生成
