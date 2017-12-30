@@ -1,0 +1,240 @@
+.gray-box {
+    position: relative;
+    margin-bottom: 30px;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #dcdcdc;
+    border-color: rgba(0, 0, 0, .14);
+    box-shadow: 0 3px 8px -6px rgba(0, 0, 0, .1);
+  }
+
+  .title {
+    padding-left: 30px;
+    position: relative;
+    z-index: 0;
+    height: 60px;
+    padding: 10px 10px 0 24px;
+    border-bottom: 1px solid #d4d4d4;
+    border-radius: 8px 8px 0 0;
+    box-shadow: rgba(0, 0, 0, .06) 0 1px 7px;
+    background: #f3f3f3;
+    background: -webkit-linear-gradient(#fbfbfb, #ececec);
+    background: linear-gradient(#fbfbfb, #ececec);
+    line-height: 60px;
+    font-size: 18px;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  h2 {
+    font-size: 18px;
+    font-weight: 400;
+    color: #626262;
+    display: inline-block;
+  }
+
+  .order-info {
+    padding: 60px 0 50px;
+    color: #333;
+    background: #fff !important;
+  }
+
+  h3 {
+    padding-bottom: 14px;
+    line-height: 36px;
+    text-align: center;
+    font-size: 36px;
+    color: #212121;
+  }
+      
+  .payment-detail {
+    text-align: center;
+    line-height: 24px;
+    font-size: 14px;
+    color: #999;
+  }
+
+  .box-inner {
+    line-height: 60px;
+    background: #f9f9f9;
+    border-top: 1px solid #e5e5e5;
+    box-sizing: border-box;
+    
+  }
+
+  .box-inner > div {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  .box-inner em {
+    margin-left: 5px;
+    font-size: 24px;
+    color: #d44d44;
+    font-weight: 700;
+    margin-right: 20px;
+    font-style: normal;
+  }
+
+  .box-inner span {
+    margin-right: 4px;
+    font-size: 16px;
+  }
+
+  .main-btn {
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+
+    width: 120px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 38px;
+
+    background-color: #5c81e3;
+    background-image: linear-gradient(180deg, #678ee7, #5078df);
+
+    border: 1px solid #5c81e3;
+    border-radius: 4px;
+    color: #fff;
+  }
+
+  .main-btn:hover {
+    background-color: #6c8cd4;
+    background-image: -webkit-linear-gradient(top, #6c8cd4, #4769c2);
+    background-image: linear-gradient(180deg, #6c8cd4, #4769c2);
+  }
+
+  .disabled-btn {
+    display: inline-block;
+    cursor: not-allowed;
+    text-align: center;
+
+    width: 120px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 38px;
+
+    border: 1px solid #afafaf;
+    border-radius: 4px;
+    color: #fff;
+    
+    background-color:#afafaf;
+    background-image: -webkit-linear-gradient(top, #b8b8b8, #a9a9a9);
+    background-image: linear-gradient(180deg, #b8b8b8, #a9a9a9);
+  }
+
+  .pay-info{
+    overflow: hidden;
+    margin: 2vw 0vw 0 21vw;
+  }
+
+.form-group .control-label {
+    font-weight: 300;
+    font-size: 14px;
+    text-align: left;
+    padding-top: 7px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.red-txt{
+  color: red;
+}
+
+.payment-money {
+  text-align: center;
+  font-size: 30px;
+  color: #d44d44;
+  font-weight: 700;
+}
+
+.img-box{
+  position: relative;
+  width: 180px;
+  height: auto;
+  min-height: 168px;
+  margin: 0 auto;
+  padding: 6px;
+  border: 1px solid #d3d3d3;
+  box-shadow: 1px 1px 1px #ccc;
+  display: inline-block;
+}
+
+img {
+  /* max-width: 168px; */
+}
+
+.explain {
+  margin: 5px 0 12px 0;
+}
+
+.pic{
+  margin-top: 3px;
+}
+
+.fn-left{
+  margin-left: -5px;
+  margin-top: -20px;
+}
+
+.fn-right{
+  font-size: 13px;
+  color: #4D4D4D;
+  line-height: 18px;
+  margin: -57px 0 0 33px;
+}
+
+.download-alipay {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: -5px;
+  font-size: 12px;
+  color: #a6a6a6;
+  text-decoration: underline;
+  width: 25%;
+  margin: 0 auto;
+}
+
+.qrguide-area {
+  position: absolute;
+  top: 122px;
+  left: 710px;
+  width: 204px;
+  height: 183px;
+  cursor: pointer;
+}
+
+.show-img{
+  display: block;
+}
+
+.close-img{
+  display: none;
+}
+
+.red {
+  position: absolute;
+  top: 470px;
+  left: 1106px;
+  width: 47px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.el-dialog--small {
+  width: 30%;
+}
+
+.qr-red {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+}

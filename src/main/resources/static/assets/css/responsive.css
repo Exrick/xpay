@@ -1,0 +1,200 @@
+
+
+/*
+Author: Bootstrapthemes
+Author URI: http://www.xpeedstudio.com
+*/
+
+/* Portrait tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+    body {
+        font-size: 1rem;
+    }
+
+
+    .cloudy{
+        top: 250px;
+        right: -240px;
+    }
+    .sunny{
+        top: 250px;
+        right: -230px;
+    }
+    .rainy{
+        top:270px;
+        right: -220px;
+    }
+
+
+
+}
+
+
+
+/* Portrait tablets and small desktops */
+/*@media (max-width: 992px) {
+
+}*/
+
+
+/* Portrait tablets and small desktops */
+@media (max-width: 991px) {
+
+    .sm-text-center{
+        text-align: center !important;
+    }
+    .sm-pull-none{
+        float: none !important;
+    }
+    .sm-m-top-10{
+        margin-top:10px;
+    }
+    .sm-m-top-20{
+        margin-top:20px;
+    }
+    .sm-m-top-30{
+        margin-top:30px;
+    }
+    .sm-m-top-50{
+        margin-top:50px;
+    }
+
+    nav.navbar.bootsnav.footer-menu{
+        background-color: transparent;
+        border-bottom: 0px solid;
+    }
+    nav.navbar.bootsnav.footer-menu .navbar-toggle{
+        background-color: transparent !important;
+    }
+
+    .cloudy {
+        right: -136px;
+    }
+    .attr_cloudy {
+        right: 22%;
+    }
+    .attr_deg2 {
+        left: 21%;
+    }
+    .sunny {
+        right: -150px;
+    }
+    .attr_sun2 {
+        right: 22%;
+    }
+    .attr_deg3 {
+        left: 20%;
+    }
+    .rainy {
+        right: -103px;
+    }
+    .attr_rainy2 {
+        right: 22%;
+    }
+    .attr_deg4 {
+        left: 21%;
+    }
+
+}
+
+
+
+/* Landscape phones and portrait tablets */
+@media  (max-width: 768px) {
+    h2{
+        font-size:2rem;
+    }
+    p{
+        font-size:90%;
+        line-height: 2rem;
+    }
+    .xs-pull-none{
+        float: none !important;
+    }
+    .xs-text-center{
+        text-align: center !important;
+    }
+    .xs-m-top-10{
+        margin-top:10px;
+    }
+    .xs-m-bottom-10{
+        margin-bottom:10px;
+    }
+    .xs-m-bottom-20{
+        margin-bottom:20px;
+    }
+    .sunny {
+        right: -170px;
+    }
+    .attr_sun2 {
+        right: 18%;
+    }
+    .attr_deg3 {
+        left: 15%;
+    }
+    .rainy {
+        right: -205px;
+    }
+    .attr_rainy2 {
+        right: 11%;
+    }
+    .attr_deg4 {
+        left: 10%;
+    }
+
+
+}
+
+
+
+
+/* Landscape phones and smaller */
+@media (max-width: 479px) {
+    html {
+        font-size: 85%;
+    }
+    .cloudy {
+        top: 255px;
+        right: -190px;
+        font-size: 11rem;
+    }
+    .attr_cloudy {
+        right: 0%;
+    }
+    .attr_deg2 {
+        left: 0%;
+    }
+
+    .attr_sun2 {
+        right: 0%;
+    }
+    .attr_deg3 {
+        left: 0%;
+    }
+    .attr_rainy2 {
+        right: 0%;
+    }
+    .attr_deg4 {
+        left: 0%;
+    }
+}
+
+
+
+
+
+@media (max-width: 400px) {
+
+
+}
+
+@media (max-width: 320px) {
+    html {
+        font-size: 60.5%;
+    }
+
+
+}
+
+
+

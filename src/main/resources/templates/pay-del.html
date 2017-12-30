@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>删除支付订单</title>
+        <meta name="description" content="XPay个人收款支付系统 无需签约 无需第三方SDK 完全免费">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       
+        <link href="https://cdn.bootcss.com/mui/3.7.1/css/mui.min.css" rel="stylesheet">
+        <style>
+            .mui-card-header>img:first-child {
+                font-size: 0;
+                line-height: 0;
+                float: left;
+                width: 34px;
+                height: 30px;
+                width: 166px;
+                margin: auto;
+            }
+
+            .mui-btn-danger, .mui-btn-negative, .mui-btn-red {
+                color: #fff;
+                border: 1px solid #dd524d;
+                background-color: #dd524d;
+                margin: auto;
+                width: 90%;
+                margin-top: 20px;
+                display: block;
+            }
+        </style>
+    </head>
+
+    <body>
+            <div class="mui-card-header">
+                <img src="http://oweupqzdv.bkt.clouddn.com/xpay-logo.png">
+            </div>
+            <button type="button" class="mui-btn mui-btn-danger" onclick="confirm()">删除该支付数据</button>
+    </body>
+
+    <script src="https://cdn.bootcss.com/mui/3.7.1/js/mui.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        //获取url中的参数
+        function getUrlParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+            if (r != null) return unescape(r[2]); return null; //返回参数值
+        }
+
+        var id=getUrlParam('id');
+        var token=getUrlParam('token');
+
+        confirm();
+        function confirm(){
+            mui.confirm('确认删除？', null, null, function(e) {
+					if (e.index == 1) {
+						submit();
+					}
+				})
+        }
+        
+        function submit(){
+            $.get(
+                '/pay/del',
+                {
+                    id: id,
+                    token: token
+                },
+                function (data, status) {
+                    if (data.success == true) {
+                        window.location.href = "/success";
+                    } else {
+                        window.location.href = "/500";
+                    }
+                });
+        }
+    </script>
+</html>
