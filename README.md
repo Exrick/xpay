@@ -104,9 +104,6 @@
 - 访问默认端口8888：http://localhost:8888
 ### Linux后台运行示例
 `nohup java -jar xpay-1.0-SNAPSHOT.jar -Xmx128m &`
-### 技术疑问交流
-- 给作者项目Star或捐赠后可加入交流群 `475743731`，还可免费获取最新源码和 [UI框架](https://github.com/Exrick/xmall/blob/master/study/FlatLab.md) [![](http://pub.idqqimg.com/wpa/images/group.png)](http://shang.qq.com/wpa/qunwpa?idkey=7b60cec12ba93ebed7568b0a63f22e6e034c0d1df33125ac43ed753342ec6ce7)
-- 作者博客：[http://blog.exrick.cn](http://blog.exrick.cn)
 ### X系列开源项目推荐
 - [XMall：基于SOA架构的分布式电商购物商城](https://github.com/Exrick/xmall)
 - 以下项目开发中，敬请期待！
@@ -116,6 +113,9 @@
     - XMall开放平台(仿微信开放平台)
 
     ![](http://oweupqzdv.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171231172014.png)
+### 技术疑问交流
+- 给作者项目Star或捐赠后可加入交流群 `475743731`，还可免费获取最新源码和 [UI框架](https://github.com/Exrick/xmall/blob/master/study/FlatLab.md) [![](http://pub.idqqimg.com/wpa/images/group.png)](http://shang.qq.com/wpa/qunwpa?idkey=7b60cec12ba93ebed7568b0a63f22e6e034c0d1df33125ac43ed753342ec6ce7)
+- 作者博客：[http://blog.exrick.cn](http://blog.exrick.cn)
 ### 捐赠
 ![](http://oweupqzdv.bkt.clouddn.com/FgwHSk1Rnd-8FKqNJhFSSdcq2QVB.png)
 
