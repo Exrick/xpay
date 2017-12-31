@@ -106,6 +106,8 @@
 `nohup java -jar xpay-1.0-SNAPSHOT.jar -Xmx128m &`
 ### X系列开源项目推荐
 - [XMall：基于SOA架构的分布式电商购物商城](https://github.com/Exrick/xmall)
+
+    ![](http://oweupqzdv.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171022183906.jpg)
 - 以下项目开发中，敬请期待！
     - XMall App
 
