@@ -32,7 +32,7 @@
 
         <link href="assets/css/style3.css" rel="stylesheet">
 
-        <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <!--<script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>-->
 
         <!-- Hotjar Tracking Code for http://xpay.exrick.cn/ -->
         <script>
@@ -73,7 +73,7 @@
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                             <i class="fa fa-bars"></i>
                         </button>
-                        <a class="navbar-brand" href="#brand">
+                        <a class="navbar-brand" href="index">
                             <img src="assets/images/footer-logo.png" class="logo logo-display" alt="">
                             <img src="assets/images/footer-logo.png" class="logo logo-scrolled" alt="">
                         </a>
@@ -248,7 +248,7 @@
                                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-footer">
                                             <i class="fa fa-bars"></i>
                                         </button>
-                                        <a class="navbar-brand" href="#brand"><img src="assets/images/footer-logo.png" class="logo" alt=""></a>
+                                        <a class="navbar-brand" href="index"><img src="assets/images/footer-logo.png" class="logo" alt=""></a>
                                     </div>
                                     <!-- End Header Navigation -->
 
@@ -352,7 +352,7 @@
 
         function initTable1() {
             var table1 = $('#table1').dataTable( {
-                "processing": true,   // 加载显示提示
+                "processing": false,   // 加载显示提示
                 "ajax": {
                     url:"/thanks/list",
                     type: 'GET'
@@ -383,7 +383,7 @@
 
         function initTable2() {
             var table1 = $('#table2').dataTable( {
-                "processing": true,   // 加载显示提示
+                "processing": false,   // 加载显示提示
                 "ajax": {
                     url:"/pay/list",
                     type: 'GET'
@@ -414,7 +414,7 @@
 
         function initTable3() {
             var table1 = $('#table3').dataTable( {
-                "processing": true,   // 加载显示提示
+                "processing": false,   // 加载显示提示
                 "ajax": {
                     url:"/pay/check/list",
                     type: 'GET'

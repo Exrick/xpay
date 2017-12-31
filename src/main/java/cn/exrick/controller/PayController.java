@@ -195,8 +195,14 @@ public class PayController {
         }
         try {
             pay.setId(getPayId(pay.getId()));
+            Pay p=payService.getPay(getPayId(pay.getId()));
+            pay.setState(p.getState());
             if(!pay.getId().contains(FAKE_PRE)){
                 pay.setCreateTime(StringUtils.getDate(pay.getTime()));
+            }else{
+                //假管理
+                pay.setMoney(p.getMoney());
+                pay.setPayType(p.getPayType());
             }
             payService.updatePay(pay);
         }catch (Exception e){

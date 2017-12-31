@@ -62,9 +62,15 @@
 - 结论：个人收款较少、见不得人的支付业务推荐使用
 ### 使用开发流程
 - 用户确认订单，需填写邮箱地址(用于邮件通知)、手机号(用于短信通知)等信息
+
+    ![](http://oweupqzdv.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171230234533.png)
 - 配置你的个人收款码，对应页面在 `src\main\resources\templates` 中 `alipay.html、wechat.html、qqpay.html`，请自行查找修改图片链接
+
+    ![](http://oweupqzdv.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171230234548.png)
 - `application.properties` 配置文件中修改你的管理员邮箱等
 - 建议下载对应邮箱App，打开支付宝、微信收款语言通知等提醒，收到支付邮箱通知后，确认是否收款到账，在邮件中进行该交易任意审核操作(业务逻辑回调完全由你自定义)
+
+    ![](http://oweupqzdv.bkt.clouddn.com/drag1.png) ![](http://oweupqzdv.bkt.clouddn.com/drag2.png)
 ### 疑问
 - 如何确定收款来自哪笔交易订单？
     - 实际业务中审核邮件会包含用户、订单号、支付金额等信息，请根据这些信息进行核对。如果短时间内收款过多仍无法判断，em？你做的什么交易收款能这么多？这只是针对个人的OK？请去申请支付接口！
@@ -105,7 +111,11 @@
 - [XMall：基于SOA架构的分布式电商购物商城](https://github.com/Exrick/xmall)
 - 以下项目开发中，敬请期待！
     - XMall App
+
+    ![](http://oweupqzdv.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171231170920.png)
     - XMall开放平台(仿微信开放平台)
+
+    ![](http://oweupqzdv.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171231172014.png)
 ### 捐赠
 ![](http://oweupqzdv.bkt.clouddn.com/FgwHSk1Rnd-8FKqNJhFSSdcq2QVB.png)
 
