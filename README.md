@@ -70,7 +70,7 @@
 - `application.properties` 配置文件中修改你的管理员邮箱等
 - 建议下载对应邮箱App，打开支付宝、微信收款语言通知等提醒，收到支付邮箱通知后，确认是否收款到账，在邮件中进行该交易任意审核操作(业务逻辑回调完全由你自定义)
 
-    ![](http://oweupqzdv.bkt.clouddn.com/drag1.png) ![](http://oweupqzdv.bkt.clouddn.com/drag2.png)
+    ![](http://oweupqzdv.bkt.clouddn.com/drag1min.png) ![](http://oweupqzdv.bkt.clouddn.com/drag2min.png)
 ### 疑问
 - 如何确定收款来自哪笔交易订单？
     - 实际业务中审核邮件会包含用户、订单号、支付金额等信息，请根据这些信息进行核对。如果短时间内收款过多仍无法判断，em？你做的什么交易收款能这么多？这只是针对个人的OK？请去申请支付接口！
