@@ -58,13 +58,13 @@
     - 结论：不免费
 - 国外支付，PayPal、Strip：不可用
 ### XPay
-- `支持支付宝、微信、QQ钱包等任意收款码，资金直接到达本人账号，接口即时回调，不需提现，不需备案，完全免费，人工一键审核，确保交易正确性`
+- `支持支付宝、微信、QQ钱包等任意收款码，资金直接到达本人账号，个人一键审核即时回调，不需提现，不需备案，完全免费`
 - 结论：个人收款较少、见不得人的支付业务推荐使用
 ### 使用开发流程
 - 用户确认订单，需填写邮箱地址(用于邮件通知)、手机号(用于短信通知)等信息
 
     ![](http://oweupqzdv.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171230234533.png)
-- 配置你的个人收款码，对应页面在 `src\main\resources\templates` 中 `alipay.html、wechat.html、qqpay.html`，请自行查找修改图片链接
+- 配置你的个人收款码，对应页面在 `src\main\resources\templates` 中 `alipay.html、wechat.html、qqpay.html`，请自行查找修改图片链接。当然你还可以设置多张固定金额收钱码，前端JS判断通过金额取出相应金额收钱码。
 
     ![](http://oweupqzdv.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171230234548.png)
 - `application.properties` 配置文件中修改你的管理员邮箱等
@@ -73,7 +73,8 @@
     ![](http://oweupqzdv.bkt.clouddn.com/drag1min.png) ![](http://oweupqzdv.bkt.clouddn.com/drag2min.png)
 ### 疑问
 - 如何确定收款来自哪笔交易订单？
-    - 实际业务中审核邮件会包含用户、订单号、支付金额等信息，请根据这些信息进行核对。如果短时间内收款过多仍无法判断，em？你做的什么交易收款能这么多？这只是针对个人的OK？请去申请支付接口！
+    - 实际业务中审核邮件会包含用户、订单号、支付金额等信息，请根据这些信息进行核对
+    - 如果短时间内收款过多仍无法判断，em？你做的什么交易收款能这么多？这只是针对个人的OK？请去申请支付接口！
 ### 前端所用技术
 - [MUI](http://dev.dcloud.net.cn/mui/)：原生前端框架
 - [jQuery](http://jquery.com/)

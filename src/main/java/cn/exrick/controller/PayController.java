@@ -26,7 +26,7 @@ import java.util.concurrent.TimeUnit;
  * @author Exrickx
  */
 @Controller
-@Api(description = "支付捐赠")
+@Api(tags = "开放接口",description = "支付捐赠管理")
 public class PayController {
 
     private static final Logger log= LoggerFactory.getLogger(PayController.class);

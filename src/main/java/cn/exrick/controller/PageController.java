@@ -17,20 +17,17 @@ import java.util.concurrent.TimeUnit;
  * @author Exrickx
  */
 @Controller
-@Api(description = "页面控制")
 public class PageController {
 
     private static final Logger log= LoggerFactory.getLogger(PageController.class);
 
     @RequestMapping("/")
-    @ApiOperation(value = "首页")
     public String index(){
 
         return "index";
     }
 
     @RequestMapping("/{page}")
-    @ApiOperation(value = "对应页面")
     public String showPage(@PathVariable String page){
 
         return page;
