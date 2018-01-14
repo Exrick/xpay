@@ -308,14 +308,13 @@ public class PayController {
 
     @RequestMapping(value = "/pay/del",method = RequestMethod.GET)
     @ApiOperation(value = "删除支付订单")
-    public String delPay(@RequestParam(required = true) String id,
-                         @RequestParam(required = true) String token,
-                         Model model){
+    @ResponseBody
+    public Result<Object> delPay(@RequestParam(required = true) String id,
+                         @RequestParam(required = true) String token){
 
         String temp=redisUtils.get(id);
         if(!token.equals(temp)){
-            model.addAttribute("errorMsg","无效的Token或链接");
-            return "/500";
+            return new ResultUtil<Object>().setErrorMsg("无效的Token或链接");
         }
         try {
             //通知回调
@@ -325,14 +324,13 @@ public class PayController {
             }
             payService.delPay(getPayId(id));
         }catch (Exception e){
-            e.printStackTrace();
-            model.addAttribute("errorMsg","删除支付订单失败");
-            return "/500";
+            log.error(e.getMessage());
+            return new ResultUtil<Object>().setErrorMsg("删除支付订单失败");
         }
         if(id.contains(FAKE_PRE)){
             redisUtils.set(id,"",1L,TimeUnit.SECONDS);
         }
-        return "redirect:/success";
+        return new ResultUtil<Object>().setData(null);
     }
 
     /**

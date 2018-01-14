@@ -70,9 +70,13 @@
                     if (data.success == true) {
                         window.location.href = "/success";
                     } else {
-                        window.location.href = "/500";
+                        message(data.message);
                     }
                 });
+        }
+
+        function message(m){
+            mui.toast(m,{ duration:'long', type:'div' })
         }
     </script>
 </html>

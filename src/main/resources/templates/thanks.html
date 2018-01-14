@@ -142,9 +142,10 @@
                                                             <thead>
                                                             <tr>
                                                                 <th width="20%">昵称</th>
-                                                                <th width="20%">捐赠方式</th>
+                                                                <th width="10%">捐赠方式</th>
                                                                 <th width="20%">捐赠金额(￥)</th>
                                                                 <th width="20%">捐赠人留言</th>
+                                                                <th width="10%">状态</th>
                                                                 <th width="20%">捐赠时间</th>
                                                             </tr>
                                                             </thead>
@@ -167,9 +168,10 @@
                                                             <thead>
                                                             <tr>
                                                                 <th width="20%">昵称</th>
-                                                                <th width="20%">支付方式</th>
+                                                                <th width="10%">支付方式</th>
                                                                 <th width="20%">支付金额(￥)</th>
                                                                 <th width="20%">留言</th>
+                                                                <th width="10%">状态</th>
                                                                 <th width="20%">订单创建时间</th>
                                                             </tr>
                                                             </thead>
@@ -188,9 +190,10 @@
                                                             <thead>
                                                             <tr>
                                                                 <th width="20%">昵称</th>
-                                                                <th width="20%">支付方式</th>
+                                                                <th width="10%">支付方式</th>
                                                                 <th width="20%">支付金额(￥)</th>
                                                                 <th width="20%">留言</th>
+                                                                <th width="10%">状态</th>
                                                                 <th width="20%">订单创建时间</th>
                                                             </tr>
                                                             </thead>
@@ -363,6 +366,12 @@
                     { "data": "money"},
                     { "data": "info"},
                     {
+                        "data": null,
+                        render: function (data, type, row, meta) {
+                            return "<div style='text-align: center'><span class=\"label label-success label-mini\">支付成功</span></div>";
+                        }
+                    },
+                    {
                         "data": "createTime",
                         render: function (data, type, row, meta) {
                             return dateToMin(data);
@@ -372,7 +381,7 @@
                 "aoColumnDefs": [
                     { "bSortable": false, "aTargets": [  ] } //制定列不参与排序
                 ],
-                "aaSorting": [ [4,"desc"] ],  // 默认排序
+                "aaSorting": [ [5,"desc"] ],  // 默认排序
                 "pageLength": 10, // 默认显示数量
                 "lengthMenu": [ 5, 10, 25, 50 ], // 页面大小选择
                 language: {
@@ -394,6 +403,12 @@
                     { "data": "money"},
                     { "data": "info"},
                     {
+                        "data": null,
+                        render: function (data, type, row, meta) {
+                            return "<div style='text-align: center'><span class=\"label label-danger label-mini\">支付失败</span></div>";
+                        }
+                    },
+                    {
                         "data": "createTime",
                         render: function (data, type, row, meta) {
                             return dateToMin(data);
@@ -403,7 +418,7 @@
                 "aoColumnDefs": [
                     { "bSortable": false, "aTargets": [  ] } //制定列不参与排序
                 ],
-                "aaSorting": [ [4,"desc"] ],  // 默认排序
+                "aaSorting": [ [5,"desc"] ],  // 默认排序
                 "pageLength": 10, // 默认显示数量
                 "lengthMenu": [ 5, 10, 25, 50 ], // 页面大小选择
                 language: {
@@ -425,6 +440,12 @@
                     { "data": "money"},
                     { "data": "info"},
                     {
+                        "data": null,
+                        render: function (data, type, row, meta) {
+                            return "<div style='text-align: center'><span class=\"label label-warning label-mini\">审核中</span></div>";
+                        }
+                    },
+                    {
                         "data": "createTime",
                         render: function (data, type, row, meta) {
                             return dateToMin(data);
@@ -434,7 +455,7 @@
                 "aoColumnDefs": [
                     { "bSortable": false, "aTargets": [  ] } //制定列不参与排序
                 ],
-                "aaSorting": [ [4,"desc"] ],  // 默认排序
+                "aaSorting": [ [5,"desc"] ],  // 默认排序
                 "pageLength": 10, // 默认显示数量
                 "lengthMenu": [ 5, 10, 25, 50 ], // 页面大小选择
                 language: {
