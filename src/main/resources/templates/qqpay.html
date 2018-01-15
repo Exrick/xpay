@@ -113,7 +113,9 @@
                                                 <div class="fn-right">打开手机QQ
                                                     <br>扫一扫继续付款</div>
                                             </div>
+                                            <div class="timeout" style="display: none">二维码已过期</div>
                                         </div>
+                                        <div class="count" id="time-box"></div>
                                     </div>
                                 </div>
 
@@ -237,21 +239,64 @@
         $("#money2").html(money);
 
         var count=30;
+        $("#confirm").attr("disabled","disabled");
         countDown();
         function countDown(){
-            let me = this
-            if (count === 0) {
+            if (count == 0) {
                 $("#confirm").removeAttr("class");
+                $("#confirm").removeAttr("disabled");
                 $("#confirm").attr("class","main-btn");
                 $("#confirm").val("确认已支付");
-                count = 30
                 return;
             } else {
-                count--
+                count--;;
             }
             setTimeout(function () {
-                me.countDown()
+                countDown();
+            }, 1000);
+        }
+
+        countTime();
+        function countTime() {
+            var time = $.cookie('time');
+            if (time <= 0) {
+                document.getElementsByClassName("timeout")[0].style.display="block";
+                $("#time-box").css("display","none");
+                $("#confirm").attr("disabled","disabled");
+                $("#confirm").val("二维码已失效");
+                $("#confirm").removeAttr("class");
+                $("#confirm").attr("class", "disabled-btn");
+                count=10000;
+                return;
+            } else {
+                time--;
+                showTime(time);
+                $.cookie('time', time);
+            }
+            setTimeout(function () {
+                countTime();
             }, 1000)
+        }
+
+        function showTime(v) {
+            if(v==null||v==""){
+                return "";
+            }
+            var m=0,s=0;
+            if(v>=60){
+                m=Math.floor(v/60);
+                s=v%60;
+            }else{
+                s=v;
+            }
+
+            if (m >= 0 && m <= 9) {
+                m = "0" + m;
+            }
+            if (s >= 0 && s <= 9) {
+                s = "0" + s;
+            }
+            $("#time-box").html("请于 "+ m + " 分 " + s + " 秒 内支付");
         }
 
         function confirm(){

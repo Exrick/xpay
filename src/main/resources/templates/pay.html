@@ -367,11 +367,13 @@
             }
         }
 
+        var setTime=90;
         function submit(){
             if(!check()){
                 return;
             }
             $.cookie('money', toMoney());
+            $.cookie('time', setTime);
             
             $("#submit").attr("disabled","disabled");
             $("#submit").val("提交中...");

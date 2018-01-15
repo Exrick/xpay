@@ -1333,7 +1333,20 @@ nav.navbar.bootsnav.footer-menu ul li a:hover{
     border-color: #4769c2;
 }
 
-.icon-success{
-    font-size: 33px;
+.icon-success {
+    font-size: 38px;
     color: #01b401;
+}
+
+.timeout{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(255,255,255,.95);
+    color: #222;
+    line-height: 200px;
+    text-align: center;
+    z-index: 1;
 }

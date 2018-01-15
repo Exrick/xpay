@@ -37,7 +37,7 @@
   }
 
   .order-info {
-    padding: 60px 0 50px;
+    padding: 60px 0 60px;
     color: #333;
     background: #fff !important;
   }
@@ -210,4 +210,16 @@ img {
   color: #4D4D4D;
   line-height: 18px;
   margin: -15px 0 0 40px;
+}
+
+.count {
+  display: flex;
+  position: absolute;
+  text-align: center;
+  width: 230px;
+  flex-direction: column;
+  align-items: center;
+  margin-left: calc(50% - 115px);
+  margin-top: 0px;
+  color: #222;
 }
