@@ -49,6 +49,9 @@ public class PayController {
     @Value("${email.sender}")
     private String EMAIL_SENDER;
 
+    @Value("${email.receiver}")
+    private String EMAIL_RECEIVER;
+
     @Value("${token.admin.expire}")
     private Long ADMIN_EXPIRE;
 
@@ -169,7 +172,7 @@ public class PayController {
         String tokenAdmin= UUID.randomUUID().toString();
         redisUtils.set(pay.getId(),tokenAdmin,ADMIN_EXPIRE,TimeUnit.DAYS);
         pay=getAdminUrl(pay,pay.getId(),tokenAdmin,MY_TOKEN);
-        emailUtils.sendTemplateMail(EMAIL_SENDER,"1012139570@qq.com","【XPay个人收款支付系统】待审核处理","email-admin",pay);
+        emailUtils.sendTemplateMail(EMAIL_SENDER,EMAIL_RECEIVER,"【XPay个人收款支付系统】待审核处理","email-admin",pay);
 
         //给假管理员发送审核邮件
         if(StringUtils.isNotBlank(pay.getTestEmail())&&EmailUtils.checkEmail(pay.getTestEmail())){
