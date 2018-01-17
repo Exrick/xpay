@@ -1,7 +1,7 @@
 # XPay个人收款支付系统
 [![AUR](https://img.shields.io/aur/license/yaourt.svg)](https://github.com/Exrick/xpay/blob/master/License)
 [![](https://img.shields.io/badge/Author-Exrick-orange.svg)](http://blog.exrick.cn)
-[![](https://img.shields.io/badge/version-1.0-brightgreen.svg)](https://github.com/Exrick/xpay)
+[![](https://img.shields.io/badge/version-1.1-brightgreen.svg)](https://github.com/Exrick/xpay)
 [![GitHub stars](https://img.shields.io/github/stars/Exrick/xpay.svg?style=social&label=Stars)](https://github.com/Exrick/xpay)
 [![GitHub forks](https://img.shields.io/github/forks/Exrick/xpay.svg?style=social&label=Fork)](https://github.com/Exrick/xpay)
 ### 项目已部署，在线Demo
@@ -64,7 +64,7 @@
 - 用户确认订单，需填写邮箱地址(用于邮件通知)、手机号(用于短信通知)等信息
 
     ![](http://oweupqzdv.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171230234533.png)
-- 配置你的个人收款码，对应页面在 `src\main\resources\templates` 中 `alipay.html、wechat.html、qqpay.html`，请自行查找修改图片链接。当然你还可以设置多张固定金额收钱码，前端JS判断通过金额取出相应金额收钱码。
+- 配置你的个人收款码，二维码图片配置在 `src\main\resources\static\assets\qr` 文件夹中，已有 alipay（对应支付宝收款码）、wechat（微信）、qqpay（QQ钱包）文件夹存放相应收款码。可设置固定金额二维码（文件名为“收款金额.png”，例如“1.00.png”）或自定义金额二维码（文件名为“custom.png”），建议分辨率>=180px比例1:1，推荐[二维码美化工具](http://www.wwei.cn/)，对应页面在 `src\main\resources\templates` 中 `alipay.html、wechat.html、qqpay.html`。当然聪明的你还可以在 `pay.html` 和这些中自定义业务逻辑，修改JS代码即可。
 
     ![](http://oweupqzdv.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171230234548.png)
 - `application.properties` 配置文件中修改你的管理员邮箱等
@@ -95,6 +95,12 @@
     - @Async 异步调用
     - @Scheduled 定时任务
     - JavaMailSender发送模版邮件
+- 第三方插件
+    - [hotjar](https://github.com/Exrick/xmall/blob/master/study/hotjar.md)：一体化分析和反馈
+- 其它开发工具
+    - [JRebel](https://github.com/Exrick/xmall/blob/master/study/JRebel.md)：开发热部署
+    - [阿里JAVA开发规约插件](https://github.com/alibaba/p3c)
+
 ### 文件说明
 - 数据库文件：xpay.sql(仅一张表)
 ### 本地开发运行部署

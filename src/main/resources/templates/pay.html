@@ -116,7 +116,19 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="money" class="control-label col-sm-2">捐赠金额<span class="red-txt"> *</span></label>
+                                                <label for="money-choose" class="control-label col-sm-2">捐赠金额<span class="red-txt"> *</span></label>
+                                                <div class="col-sm-10">
+                                                    <select class="form-control m-bot15" id="money-choose" onchange="chooseMoney()">
+                                                        <option value="0.10">￥0.10 我是穷逼</option>
+                                                        <option value="1.00" selected>￥1.00 支付测试</option>
+                                                        <option value="5.00">￥5.00 感谢打赏</option>
+                                                        <option value="10.00">￥10.00 感谢大佬</option>
+                                                        <option value="custom">自定义 随意撒币</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" id="custom-input" style="display: none">
+                                                <label for="money-choose" class="control-label col-sm-2">请输入金额<span class="red-txt"> *</span></label>
                                                 <div class="col-sm-10">
                                                     <input class="form-control" id="money" name="money" onchange="toMoney()" type="text" maxlength="20" placeholder="请确认您的支付金额(支持小数点后2位)"/>
                                                 </div>
@@ -264,7 +276,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
         <!-- JS includes -->
@@ -286,20 +297,22 @@
     <script>
         $("[data-toggle='popover']").popover();
 
-        var nickName="",money="",email="",testEmail="",payType="Alipay";
+        var nickName="",money="",email="",testEmail="",payType="Alipay",picName="";
         function check(){
             nickName=$("#nickName").val();
             money=$("#money").val();
             email=$("#email").val();
             testEmail=$("#testEmail").val();
 
-            if(nickName==""||money==""||email==""){
+            if(nickName==""||email==""){
                 showMsg('关键表单字段不能为空');
                 return false;
             }
-            if(!isMoney(money)){
-                showMsg('请填写正确的金额（支持2位小数）');
-                return false;
+            if(picName=="custom"){
+                if(!isMoney(money)){
+                    showMsg('请填写正确的金额（支持2位小数，金额不低于0.1）');
+                    return false;
+                }
             }
             if(!isEmail(email)){
                 showMsg('请填写正确的通知邮箱地址');
@@ -313,7 +326,7 @@
         }
 
         function isMoney (v) {
-            if(v<=0){
+            if(v==""||v==null||v<0.1){
                 return false;
             }
             var regu = /(^[1-9]([0-9]+)?(\.[0-9]{1,2})?$)|(^(0){1}$)|(^[0-9]\.[0-9]([0-9])?$)/
@@ -347,6 +360,29 @@
             return money;
         }
 
+        chooseMoney();
+        function chooseMoney() {
+            var v=$("#money-choose").val();
+            picName=v;
+            $.cookie('picName', v);
+
+            if(v=="custom"){
+                document.getElementById("custom-input").style.display="block";
+            }else{
+                if(v==""){
+                    $("#realMoney").html("0.00");
+                    return;
+                }
+                v = parseFloat(v);
+                v = v.toFixed(2);
+                v = v.toLocaleString();
+                $("#realMoney").html(v);
+                money=v;
+
+                document.getElementById("custom-input").style.display="none";
+            }
+        }
+
         function changeType(v){
             if(v==1){
                 payType="Alipay";
@@ -372,9 +408,14 @@
             if(!check()){
                 return;
             }
-            $.cookie('money', toMoney());
+            if(picName=="custom"){
+                money=$("#money").val();
+            }else{
+                money=picName;
+            }
+            $.cookie('money', money);
             $.cookie('time', setTime);
-            
+
             $("#submit").attr("disabled","disabled");
             $("#submit").val("提交中...");
             $.ajax({
@@ -382,7 +423,7 @@
                 type: 'POST',
                 data:{
                     nickName:nickName,
-                    money:toMoney(),
+                    money:money,
                     email:email,
                     testEmail:testEmail,
                     payType:payType,

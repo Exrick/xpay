@@ -106,7 +106,8 @@
                                         <p class="payment-detail">扫一扫付款（元）</p>
                                         <p class="payment-money" id="money1"></p>
                                         <div class="img-box">
-                                            <img class="pic" src="http://oweupqzdv.bkt.clouddn.com/%E4%BA%8C%E7%BB%B4%E7%A0%81201712111325.png" alt="加载失败" width="168px"
+                                            <img class="pic" id="qr-pic"
+                                                 src="/assets/qr/wechat/custom.png" alt="加载失败" width="168px"
                                                 height="168px" />
                                             <div class="timeout" style="display: none">二维码已过期</div>
                                         </div>
@@ -233,6 +234,15 @@
         }
         $("#money1").html(money);
         $("#money2").html(money);
+
+        var picName = $.cookie('picName');
+        var path="";
+        if(picName==""||picName==null||picName=="null"||picName=="custom"){
+
+        }else{
+            path="/assets/qr/wechat/"+picName+".png";
+            $("#qr-pic").attr("src",path);
+        }
 
         var count=30;
         $("#confirm").attr("disabled","disabled");

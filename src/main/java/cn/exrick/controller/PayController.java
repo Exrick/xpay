@@ -146,7 +146,7 @@ public class PayController {
     @ResponseBody
     public Result<Object> addPay(@ModelAttribute Pay pay, HttpServletRequest request){
 
-        if(StringUtils.isBlank(pay.getNickName())||StringUtils.isBlank(pay.getMoney().toString())
+        if(StringUtils.isBlank(pay.getNickName())||StringUtils.isBlank(String.valueOf(pay.getMoney()))
                 ||StringUtils.isBlank(pay.getEmail())||!EmailUtils.checkEmail(pay.getEmail())){
             return new ResultUtil<Object>().setErrorMsg("请填写完整信息和正确的通知邮箱");
         }
