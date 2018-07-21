@@ -1,14 +1,29 @@
+
 # XPay个人收款支付系统
 [![AUR](https://img.shields.io/aur/license/yaourt.svg)](https://github.com/Exrick/xpay/blob/master/License)
 [![](https://img.shields.io/badge/Author-Exrick-orange.svg)](http://blog.exrick.cn)
 [![](https://img.shields.io/badge/version-1.1-brightgreen.svg)](https://github.com/Exrick/xpay)
 [![GitHub stars](https://img.shields.io/github/stars/Exrick/xpay.svg?style=social&label=Stars)](https://github.com/Exrick/xpay)
 [![GitHub forks](https://img.shields.io/github/forks/Exrick/xpay.svg?style=social&label=Fork)](https://github.com/Exrick/xpay)
+> 作者大四作品 期待您的捐赠支持！
 ### 项目已部署，在线Demo
 - 本项目运行后效果：http://xpay.exrick.cn
 - 本项目Swagger接口文档：http://xpay.exrick.cn/swagger-ui.html
 - 实际综合应用商城项目：http://xmall.exrick.cn/
-### 声明：此系统只针对个人开发收款支付，实际可应用到实现自动维护捐赠表等业务，无法商用！当然你还可将此项目当作入门级的SpringBoot练习项目
+
+### v1.2版本已发布！实现移动端支付方案 [立即获取源码和文档](http://xpay.exrick.cn/pay)
+- 实现订单支付标识 解决无法识别支付人问题
+- 实现一键打开支付宝APP支付(支持安卓浏览器、IOS应用，不支持微信中打开)
+- 实现移动端支付方案 
+- 赶快使用手机扫码体验吧
+
+    ![](http://p77xsahe9.bkt.clouddn.com/18-7-21/16350122.jpg)
+
+- 注：v1.2源码（含原理及详细文档）获取方式 进入[XPay官网](http://xpay.exrick.cn/pay)成功支付测试后 将自动发至你所填写的邮箱中
+
+### 声明
+> 此系统只针对个人开发收款支付，实际可应用到实现~~自动维护捐赠表等业务，无法商用~~！v1.2版本可已实现充值、发卡、自动发货等业务，可勉强商用！当然你还可将此项目当作入门级的SpringBoot练习项目
+
 ### 个人申请支付接口现状
 - 原生网银支付
 
@@ -63,18 +78,19 @@
 ### 使用开发流程
 - 用户确认订单，需填写邮箱地址(用于邮件通知)、手机号(用于短信通知)等信息
 
-    ![](http://oweupqzdv.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171230234533.png)
+    ![QQ截图20171230234533.png](https://i.loli.net/2018/07/21/5b52e0e68eb55.png)
 - 配置你的个人收款码，二维码图片配置在 `src\main\resources\static\assets\qr` 文件夹中，已有 alipay（对应支付宝收款码）、wechat（微信）、qqpay（QQ钱包）文件夹存放相应收款码。可设置固定金额二维码（文件名为“收款金额.png”，例如“1.00.png”）或自定义金额二维码（文件名为“custom.png”），建议分辨率>=180px比例1:1，推荐[二维码美化工具](http://www.wwei.cn/)，对应页面在 `src\main\resources\templates` 中 `alipay.html、wechat.html、qqpay.html`。当然聪明的你还可以在 `pay.html` 和这些中自定义业务逻辑，修改JS代码即可。
 
-    ![](http://oweupqzdv.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171230234548.png)
+    ![QQ截图20171230234548.png](https://i.loli.net/2018/07/21/5b52e1108ab66.png)
 - `application.properties` 配置文件中修改你的管理员邮箱等
 - 建议下载对应邮箱App，打开支付宝、微信收款语言通知等提醒，收到支付邮箱通知后，确认是否收款到账，在邮件中进行该交易任意审核操作(业务逻辑回调完全由你自定义)
 
-    ![](http://oweupqzdv.bkt.clouddn.com/drag1min.png) ![](http://oweupqzdv.bkt.clouddn.com/drag2min.png)
+    ![drag1min.png](https://i.loli.net/2018/07/21/5b52e14f9fc08.png) ![drag2min.png](https://i.loli.net/2018/07/21/5b52e14fa3e61.png)
 ### 疑问
 - 如何确定收款来自哪笔交易订单？
-    - 实际业务中审核邮件会包含用户、订单号、支付金额等信息，请根据这些信息进行核对
-    - 如果短时间内收款过多仍无法判断，em？你做的什么交易收款能这么多？这只是针对个人的OK？请去申请支付接口！
+    - ~~实际业务中审核邮件会包含用户、订单号、支付金额等信息，请根据这些信息进行核对~~
+    - ~~如果短时间内收款过多仍无法判断，em？你做的什么交易收款能这么多？这只是针对个人的OK？请去申请支付接口！~~
+    - v1.2版本已解决该问问题 [点我获取v1.2版本源码](http://xpay.exrick.cn/pay)
 ### 前端所用技术
 - [MUI](http://dev.dcloud.net.cn/mui/)：原生前端框架
 - [jQuery](http://jquery.com/)
@@ -114,17 +130,19 @@
 ### X系列开源项目推荐
 - [XMall：基于SOA架构的分布式电商购物商城](https://github.com/Exrick/xmall)
 
-    ![](http://oweupqzdv.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171022183906.jpg)
+    ![QQ截图20171022183906.jpg](https://i.loli.net/2018/07/21/5b52e192366a0.jpg)
 - 以下项目开发中，敬请期待！
-    - XMall App
+    - XMall小程序 [预览视频](https://v.qq.com/x/page/f0627kf4x1e.html) [点我获取小程序源码(不含后台)](http://xpay.exrick.cn/pay)
 
-    ![](http://oweupqzdv.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171231170920.png)
-    - XMall开放平台(仿微信开放平台)
+    ![](![小程序.png](https://i.loli.net/2018/07/21/5b52e1de385e7.png))
+    - X-Boot前后端分离开发平台
 
-    ![](http://oweupqzdv.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20171231172014.png)
+    ![xboot.png](https://i.loli.net/2018/07/21/5b52e274d2085.png)
 ### 技术疑问交流
-- 给作者项目Star或捐赠后可加入交流群 `475743731`，还可免费获取最新源码和 [UI框架](https://github.com/Exrick/xmall/blob/master/study/FlatLab.md) [![](http://pub.idqqimg.com/wpa/images/group.png)](http://shang.qq.com/wpa/qunwpa?idkey=7b60cec12ba93ebed7568b0a63f22e6e034c0d1df33125ac43ed753342ec6ce7)
+- 给作者项目Star或捐赠后可加入交流群 `475743731`，还可获取共享学习资源和 [UI框架](https://github.com/Exrick/xmall/blob/master/study/FlatLab.md) [![](http://pub.idqqimg.com/wpa/images/group.png)](http://shang.qq.com/wpa/qunwpa?idkey=7b60cec12ba93ebed7568b0a63f22e6e034c0d1df33125ac43ed753342ec6ce7)
 - 作者博客：[http://blog.exrick.cn](http://blog.exrick.cn)
 ### 捐赠
-![](http://oweupqzdv.bkt.clouddn.com/FgwHSk1Rnd-8FKqNJhFSSdcq2QVB.png)
+![](http://p77xsahe9.bkt.clouddn.com/18-7-20/54731550.jpg)
+
+![](http://p77xsahe9.bkt.clouddn.com/18-6-28/32845239.jpg)
 
