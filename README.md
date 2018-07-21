@@ -135,7 +135,8 @@
 - 以下项目开发中，敬请期待！
     - XMall小程序 [预览视频](https://v.qq.com/x/page/f0627kf4x1e.html) [点我获取小程序源码(不含后台)](http://xpay.exrick.cn/pay)
 
-    ![](![小程序.png](https://i.loli.net/2018/07/21/5b52e1de385e7.png)
+    ![小程序.png](https://i.loli.net/2018/07/21/5b52e1de385e7.png)
+
     - X-Boot前后端分离开发平台
 
     ![xboot.png](https://i.loli.net/2018/07/21/5b52e274d2085.png)
