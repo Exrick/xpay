@@ -19,7 +19,8 @@
 
     ![](http://p77xsahe9.bkt.clouddn.com/18-7-21/16350122.jpg)
 
-- 注：v1.2源码（含原理及详细文档）获取方式 进入[XPay官网](http://xpay.exrick.cn/pay)成功支付测试后 将自动发至你所填写的邮箱中
+#### 注：v1.2源码（含原理及详细文档）获取方式 
+    - 进入 [XPay官网](http://xpay.exrick.cn/pay) 成功支付测试后 将自动发至你所填写的邮箱中
 
 ### 声明
 > 此系统只针对个人开发收款支付，实际可应用到实现~~自动维护捐赠表等业务，无法商用~~！v1.2版本可已实现充值、发卡、自动发货等业务，可勉强商用！当然你还可将此项目当作入门级的SpringBoot练习项目
@@ -134,7 +135,7 @@
 - 以下项目开发中，敬请期待！
     - XMall小程序 [预览视频](https://v.qq.com/x/page/f0627kf4x1e.html) [点我获取小程序源码(不含后台)](http://xpay.exrick.cn/pay)
 
-    ![](![小程序.png](https://i.loli.net/2018/07/21/5b52e1de385e7.png))
+    ![](![小程序.png](https://i.loli.net/2018/07/21/5b52e1de385e7.png)
     - X-Boot前后端分离开发平台
 
     ![xboot.png](https://i.loli.net/2018/07/21/5b52e274d2085.png)
