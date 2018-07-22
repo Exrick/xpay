@@ -6,6 +6,8 @@
 [![GitHub stars](https://img.shields.io/github/stars/Exrick/xpay.svg?style=social&label=Stars)](https://github.com/Exrick/xpay)
 [![GitHub forks](https://img.shields.io/github/forks/Exrick/xpay.svg?style=social&label=Fork)](https://github.com/Exrick/xpay)
 > 作者大四作品 期待您的捐赠支持！
+### [宣传视频](https://www.bilibili.com/video/av23121122/)
+- 作者亲自制作 [点我观看](https://www.bilibili.com/video/av23121122/)
 ### 项目已部署，在线Demo
 - 本项目运行后效果：http://xpay.exrick.cn
 - 本项目Swagger接口文档：http://xpay.exrick.cn/swagger-ui.html
@@ -15,8 +17,7 @@
 - 实现订单支付标识 解决无法识别支付人问题
 - 实现一键打开支付宝APP支付(支持安卓浏览器、IOS应用，不支持微信中打开)
 - 实现移动端支付方案 支持H5、APP、小程序
-- 轻松支持多账户收款 
-- 接入业务限制：我管不着... 赶快使用手机扫码体验吧
+- 轻松支持多账户收款 赶快使用手机扫码体验吧
 
     ![](http://p77xsahe9.bkt.clouddn.com/18-7-21/16350122.jpg)
 
@@ -132,18 +133,21 @@
 - 访问默认端口8888：http://localhost:8888
 ### Linux后台运行示例
 `nohup java -jar xpay-1.0-SNAPSHOT.jar -Xmx128m &`
-### X系列开源项目推荐
+### 作者其他项目推荐
 - [XMall：基于SOA架构的分布式电商购物商城](https://github.com/Exrick/xmall)
 
     ![QQ截图20171022183906.jpg](https://i.loli.net/2018/07/21/5b52e192366a0.jpg)
-- 以下项目开发中，敬请期待！
-    - XMall小程序 [预览视频](https://v.qq.com/x/page/f0627kf4x1e.html) [点我获取小程序源码(不含后台)](http://xpay.exrick.cn/pay)
 
-    ![小程序.png](https://i.loli.net/2018/07/21/5b52e1de385e7.png)
+- [X-Boot前后端分离开发平台](https://github.com/Exrick/x-boot)
 
-    - X-Boot前后端分离开发平台
+    ![](https://i.loli.net/2018/07/21/5b52e274d2085.png)
 
-    ![xboot.png](https://i.loli.net/2018/07/21/5b52e274d2085.png)
+- 微信小程序APP 
+    - [前台源码点我提前获取](http://xpay.exrick.cn/pay) [预览视频](https://v.qq.com/x/page/f0627kf4x1e.html)
+
+    ![](https://i.loli.net/2018/07/21/5b52e1de385e7.png)
+
+    
 ### 技术疑问交流
 - 给作者项目Star或捐赠后可加入交流群 `475743731`，还可获取共享学习资源和 [UI框架](https://github.com/Exrick/xmall/blob/master/study/FlatLab.md) [![](http://pub.idqqimg.com/wpa/images/group.png)](http://shang.qq.com/wpa/qunwpa?idkey=7b60cec12ba93ebed7568b0a63f22e6e034c0d1df33125ac43ed753342ec6ce7)
 - 作者博客：[http://blog.exrick.cn](http://blog.exrick.cn)
