@@ -97,6 +97,9 @@
 - 为什么不做自动监听？
     - 迟早被封的为什么要做？...XPay主要面向个人如学生群体，也目前成本最低最稳定的方案，免费！
     - 作者了解到目前市面上最黑科技的也就是 [Payjs](https://payjs.cn/) 了，只支持微信支付，正规业务推荐用它，非正规？请看它[官方说明](https://help.payjs.cn/chang-jian-wen-ti/jin-zhi-jie-ru-lie-biao.html)，不想受限制不想用APP监听还想免费？请用我这套，哈哈![QQ截图20180721215515.png](https://i.loli.net/2018/07/21/5b533b90bd23b.png)
+
+> 温馨（jing）提示（gao）：大家做这种监听软件之前请先仔细阅读微信、支付宝使用协议，如果他们想追究你责任你肯定是赢不了的，毕竟用这些的都是些什么业务我也不用多说。
+
 ### 前端所用技术
 - [MUI](http://dev.dcloud.net.cn/mui/)：原生前端框架
 - [jQuery](http://jquery.com/)
@@ -149,7 +152,9 @@
 
     
 ### 技术疑问交流
-- 给作者项目Star或捐赠后可加入交流群 `475743731`，还可获取共享学习资源和 [UI框架](https://github.com/Exrick/xmall/blob/master/study/FlatLab.md) [![](http://pub.idqqimg.com/wpa/images/group.png)](http://shang.qq.com/wpa/qunwpa?idkey=7b60cec12ba93ebed7568b0a63f22e6e034c0d1df33125ac43ed753342ec6ce7)
+- QQ交流群 `475743731(付费)`，可获取各项目详细图文文档、疑问解答 [![](http://pub.idqqimg.com/wpa/images/group.png)](http://shang.qq.com/wpa/qunwpa?idkey=7b60cec12ba93ebed7568b0a63f22e6e034c0d1df33125ac43ed753342ec6ce7)
+- 免费交流群 `562962309` [![](http://pub.idqqimg.com/wpa/images/group.png)](http://shang.qq.com/wpa/qunwpa?idkey=52f6003e230b26addeed0ba6cf343fcf3ba5d97829d17f5b8fa5b151dba7e842)
+
 - 作者博客：[http://blog.exrick.cn](http://blog.exrick.cn)
 ### 捐赠
 ![](http://p77xsahe9.bkt.clouddn.com/18-7-20/54731550.jpg)
