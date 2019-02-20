@@ -146,7 +146,7 @@
 ### 文件说明
 - 数据库文件：xpay.sql(仅一张表)
 ### 本地开发运行部署
-- 依赖：[Redis](https://github.com/Exrick/xmall/blob/master/study/Redis.md)(非必须，但影响部分功能)
+- 依赖：[Redis](https://github.com/Exrick/xmall/blob/master/study/Redis.md)(必须)
 - 新建数据库，见xpay.sql文件
 - 在 `application.properties` 中修改你的配置，例如端口、数据库、Redis、邮箱配置等，其中有详细注释
 - 运行 `XpayApplication.java`
