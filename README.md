@@ -83,7 +83,7 @@
 - 其他基于Xposed挂机监听软件
     - `基于virtual xposed hook相关技术，可自动生成任意备注金额收款码 参考抢红包外挂`
     - 结论：成本高，配置麻烦，需24小时挂台安卓手机，量大易触发风控、不免费，黑产适用
-- Payjs （疑[微信小微商户](https://pay.weixin.qq.com/index.php/core/affiliate/micro_intro)）
+- Payjs （疑使用[微信小微商户](https://pay.weixin.qq.com/index.php/core/affiliate/micro_intro)）
     - `微信个人免签接口，正规业务推荐使用`
     - 结论：仅支持微信、不免费、费率高
 - 国外支付，PayPal、Strip：不可用
