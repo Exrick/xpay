@@ -1,0 +1,430 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>XPay个人收款支付系统</title>
+        <meta name="description" content="XPay个人收款支付系统 无需签约 无需第三方SDK 完全免费">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="favicon.ico">
+
+        <!--<link rel="stylesheet" href="assets/css/swiper.min.css">-->
+        <link rel="stylesheet" href="assets/css/animate.css">
+        <link rel="stylesheet" href="assets/css/iconfont.css">
+        <!--<link rel="stylesheet" href="assets/css/font-awesome.min.css">-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <!--<link rel="stylesheet" href="assets/css/bootstrap.min.css">-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <!--<link rel="stylesheet" href="assets/css/magnific-popup.css">-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.1/magnific-popup.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/bootsnav2.css">
+
+        <!--For Plugins external css-->
+        <!--<link rel="stylesheet" href="assets/css/plugins.css" />-->
+        <!--Theme custom css -->
+        <link rel="stylesheet" href="assets/css/style.css">
+    
+        <!--Theme Responsive css-->
+        <link rel="stylesheet" href="assets/css/responsive.css" />
+
+        <link rel="stylesheet" href="assets/css/qqpay.css">
+
+        <!--<script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>-->
+        <!--<script src="https://cdn.bootcss.com/modernizr/2.8.2/modernizr.min.js"></script>-->
+
+        <!-- Hotjar Tracking Code for http://xpay.exrick.cn/ -->
+        <script>
+            (function(h,o,t,j,a,r){
+                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                h._hjSettings={hjid:734009,hjsv:6};
+                a=o.getElementsByTagName('head')[0];
+                r=o.createElement('script');r.async=1;
+                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                a.appendChild(r);
+            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+        </script>
+    </head>
+
+    <body data-spy="scroll" data-target=".navbar-collapse" style="background:#f1f2f7">
+
+        <div class="culmn">
+            <!--Home page style-->
+
+            <nav class="navbar navbar-default bootsnav navbar-fixed white no-background" style="border-bottom: solid 1px #e0e0e0;background-color: #fff;">
+                <div class="container">  
+
+                    <!-- Start Atribute Navigation -->
+                    <div class="attr-nav">
+                        <ul>
+                            <li><a href="https://github.com/Exrick/xpay" target="_blank" title="Github"><i class="fa fa-github" style="font-size:21px"></i></a></li>
+                            <li><a href="http://blog.exrick.cn" target="_blank" title="作者博客"><i class="fa fa-user-circle" style="font-size:18px"></i></a></li>
+                            <li><a><i class="fa fa-qrcode" style="font-size:19px" title="免费交流群 562962309" data-container="body" data-toggle="popover" data-placement="bottom"
+                                data-html="true" data-content="<img src='assets/images/qq-qr.png' width='180'>" data-trigger="hover"></i></a></li>
+                        </ul>
+                    </div>        
+                    <!-- End Atribute Navigation -->
+
+
+                    <!-- Start Header Navigation -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <a class="navbar-brand" href="index">
+                            <img src="assets/images/footer-logo.png" class="logo logo-display" alt="">
+                            <img src="assets/images/footer-logo.png" class="logo logo-scrolled" alt="">
+                        </a>
+
+                    </div>
+                    <!-- End Header Navigation -->
+
+                    <!-- navbar menu -->
+                    <div class="collapse navbar-collapse" id="navbar-menu">
+                        <ul class="nav navbar-nav navbar-center">
+                            <li><a href="index">首页</a></li>
+                            <li><a href="pay">支付体验</a></li>
+                            <li><a href="thanks">捐赠名单</a></li>
+                            <li><a href="http://xmall.exrick.cn" target="_blank">XMall商城</a></li>
+                            <li><a href="https://github.com/Exrick/xpay" target="_blank">开发教程</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div>   
+          </nav>
+
+            <!--Featured Section-->
+            <section id="features" class="features">
+                <div class="container">
+                    <div class="row">
+                        <div class="main_features p-top-100">
+                            
+                            <div class="gray-box">
+                                <div class="title">
+                                  <h2>XPay收银台 收款方：Exrick</h2>
+                                </div>
+                                <!--内容-->
+                                <div>
+                                    <div class="box-inner order-info" >
+                                        <img class="wechat" src="/assets/images/qqpay.png" alt="扫一扫标识">
+                                        <p class="payment-detail">扫一扫付款（元）</p>
+                                        <p class="payment-money" id="money1"></p>
+                                        <p id="showreamrk" class="payment-detail" style="display: none">
+                                            支付时请在备注中输入您的订单标识号：<b class="payNum" style="color: #d44d44;"></b><br>
+                                        </p>
+                                        <div class="img-box" style="flex-direction: column;">
+                                            <img class="pic" id="qr-pic"
+                                                 src="/assets/qr/qqpay/custom.png" alt="加载失败" width="168px"
+                                                height="168px" />
+                                            <div class="explain">
+                                                <img class="fn-left" src="assets/images/qr.png" width="38px" height="38px" alt="扫一扫标识">
+                                                <div class="fn-right">打开手机QQ
+                                                    <br>扫一扫继续付款</div>
+                                            </div>
+                                            <div class="timeout" style="display: none">二维码已过期</div>
+                                        </div>
+                                        <p id="qrmobile" style="display: none;margin: 10px 10px -10px 10px;text-align: center;">
+                                            <span>请长按二维码保存图片至手机后，打开QQ使用“扫一扫”，点击右上角“相册”选择刚保存的二维码图片进行支付</span>
+                                        </p>
+                                        <p id="qrscan" style="display: none;margin: 10px 10px -10px 10px;text-align: center;">
+                                            <span>请长按二维码选择“扫描二维码”进行支付</span>
+                                        </p>
+                                        <div class="count" id="time-box"></div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="box-inner">
+                                      <div>
+                                        <span>
+              
+                                        </span>
+                                        <em><span>¥</span><em id="money2"></em></em>
+                                        <input type="text" class="disabled-btn" id="confirm" onclick="confirm()" value="等待支付..." readonly style="margin-right:15px">
+                                      </div>
+                                    </div>
+                                </div>
+                                  
+                              </div>
+
+                        </div>
+                    </div><!-- End off row -->
+                </div><!-- End off container -->
+            </section><!-- End off Featured Section-->
+
+            <!-- scroll up-->
+            <div class="scrollup">
+                <a href="#"><i class="fa fa-chevron-up"></i></a>
+            </div><!-- End off scroll up -->
+            
+            
+            <footer id="footer" class="footer bg-black">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <nav class="navbar navbar-default bootsnav footer-menu no-background">
+                                <div class="container">  
+
+                                    <!-- Start Atribute Navigation -->
+                                    <div class="attr-nav">
+                                        <ul>
+                                            <li>
+                                                <a href="https://github.com/Exrick/xpay" target="_blank" title="Github">
+                                                    <i class="fa fa-github" style="font-size:21px"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="http://blog.exrick.cn" target="_blank" title="作者博客">
+                                                    <i class="fa fa-user-circle" style="font-size:18px"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a>
+                                                    <i class="fa fa-qrcode" style="font-size:19px" title="免费交流群 562962309" data-container="body" data-toggle="popover" data-placement="top"
+                                                        data-html="true" data-content="<img src='assets/images/qq-qr.png' width='150'>" data-trigger="hover"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- End Atribute Navigation -->
+
+
+                                    <!-- Start Header Navigation -->
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-footer">
+                                            <i class="fa fa-bars"></i>
+                                        </button>
+                                        <a class="navbar-brand" href="index"><img src="assets/images/footer-logo.png" class="logo" alt=""></a>
+                                    </div>
+                                    <!-- End Header Navigation -->
+
+                                    <!-- navbar menu -->
+                                    <div class="collapse navbar-collapse" id="navbar-footer">
+                                        <ul class="nav navbar-nav navbar-center">
+                                            <li><a href="index">首页</a></li>
+                                            <li><a href="pay">支付体验</a></li>
+                                            <li><a href="thanks">捐赠名单</a></li>
+                                            <li><a href="http://xmall.exrick.cn" target="_blank">XMall商城</a></li>
+                                            <li><a href="https://github.com/Exrick/xpay" target="_blank">开发教程</a></li>
+                                        </ul>
+                                    </div><!-- /.navbar-collapse -->
+                                </div>   
+                            </nav>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="col-md-12">
+                            <div class="main_footer text-center p-top-40 p-bottom-30">
+                                <p class="wow fadeInRight" data-wow-duration="1s">
+                                    <a href="http://blog.exrick.cn/" target="_blank">xpay.exrick.cn </a> ©2017-Present. All Rights Reserved
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+            <!-- Modal -->
+            <div class="modal fade" id="reamrkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">请在备注中输入支付标识号</h4>
+                        </div>
+                        <div class="modal-body reamrk">
+                            <p style="margin-bottom: 10px;">
+                                支付时请在备注中输入您的订单标识号：<b class="payNum" style="color: #d44d44;"></b><br>
+                                若忘记输入或输入错误可能会造成您支付失败！
+                            </p>
+                            <img src="/assets/images/qqremark.png" style="margin:0 auto;max-width:300px !important;"/>
+                        </div>
+                        <div class="modal-footer">
+                            <button data-dismiss="modal" class="btn btn-warning" type="button">知道了</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="msgModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">提示</h4>
+                        </div>
+                        <div class="modal-body" id="msgBody">
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-warning" type="button" onclick="toThanks()">确 认</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- JS includes -->
+
+        <!--<script src="assets/js/vendor/jquery-1.11.2.min.js"></script>-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <!--<script src="assets/js/vendor/bootstrap.min.js"></script>-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+        <!--<script src="assets/js/jquery.magnific-popup.js"></script>-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.1/jquery.magnific-popup.min.js"></script>
+        <!--<script src="assets/js/jquery.easing.1.3.js"></script>-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.compatibility.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.0/js/swiper.jquery.min.js"></script>
+        <script src="assets/js/jquery.collapse.js"></script>
+        <script src="assets/js/bootsnav.js"></script>
+
+        <script src="assets/js/plugins.js"></script>
+        <script src="assets/js/main.js"></script>
+
+        <script src="assets/js/jquery.cookie.js"></script>
+
+    </body>
+    <script>
+        $("[data-toggle='popover']").popover();
+
+        // 判断是否qq浏览器
+        function isQQ() {
+            var ua = window.navigator.userAgent.toLowerCase();
+            if (ua.match(/QQ/i) == 'qq') {
+                return 1;
+            }
+            return 0;
+        }
+
+        // 判断移动设备
+        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+            $("#qrmobile").css('display','block');
+        }
+
+        if(isQQ()){
+            $("#qrmobile").css('display','none');
+            $("#qrscan").css('display','block');
+        }
+
+        var money=$.cookie('money');
+        if(money==""||money==null){
+            window.location.href="/";
+        }
+        $("#money1").html(Number(money).toFixed(2));
+        $("#money2").html(Number(money).toFixed(2));
+
+        var picName = $.cookie('picName');
+        // 获取num
+        var num  = $.cookie('payNum');
+        var path="";
+        if(picName==""||picName==null||picName=="null"||picName=="custom"){
+            $("#reamrkModal").modal('show');
+            // 自定义金额显示需填写订单标识
+            $(".payNum").html(num);
+            //显示
+            $("#showreamrk").css("display","block");
+        }else{
+            path="/assets/qr/qqpay/"+picName+"/"+num+".png";
+            $("#qr-pic").attr("src",path);
+            countDown();
+            countTime();
+        }
+
+        $('#reamrkModal').on('hide.bs.modal', function () {
+            countDown();
+            countTime();
+        })
+
+        var count=30;
+        $("#confirm").attr("disabled","disabled");
+
+        function countDown(){
+            if (count == 0) {
+                $("#confirm").removeAttr("class");
+                $("#confirm").removeAttr("disabled");
+                $("#confirm").attr("class","main-btn");
+                $("#confirm").val("确认已支付");
+                return;
+            } else {
+                count--;
+            }
+            setTimeout(function () {
+                countDown();
+            }, 1000);
+        }
+
+        function countTime() {
+            var time = $.cookie('time');
+            if (time <= 0) {
+                document.getElementsByClassName("timeout")[0].style.display="block";
+                $("#time-box").css("display","none");
+                $("#confirm").attr("disabled","disabled");
+                $("#confirm").val("二维码已失效");
+                $("#confirm").removeAttr("class");
+                $("#confirm").attr("class", "disabled-btn");
+                count=10000;
+                return;
+            } else {
+                time--;
+                showTime(time);
+                $.cookie('time', time);
+            }
+            setTimeout(function () {
+                countTime();
+            }, 1000)
+        }
+
+        function showTime(v) {
+            if(v==null||v==""){
+                return "";
+            }
+            var m=0,s=0;
+            if(v>=60){
+                m=Math.floor(v/60);
+                s=v%60;
+            }else{
+                s=v;
+            }
+
+            if (m >= 0 && m <= 9) {
+                m = "0" + m;
+            }
+            if (s >= 0 && s <= 9) {
+                s = "0" + s;
+            }
+            $("#time-box").html("请于 "+ m + " 分 " + s + " 秒 内支付");
+        }
+
+        judgeState();
+        function judgeState() {
+            $.ajax({
+                url:"/pay/state/"+$.cookie('payId'),
+                type: 'GET',
+                success:function (data) {
+                    if(data.success==true){
+                        if(data.result==1){
+                            showMsg("恭喜您已成功支付 "+Number(money).toFixed(2)+" 元，感谢您的捐赠，请查收通知邮件，若长时间未收到请检查垃圾邮件或进行反馈！");
+                        }else if(data.result==2){
+                            showMsg("抱歉，您已支付失败，请检查您的支付金额或输入的标识号再次尝试支付！");
+                        }else{
+                            setTimeout(function () {
+                                judgeState();
+                            }, 1000)
+                        }
+                    }
+                }
+            });
+        }
+        function showMsg(m){
+            $("#msgModal").modal('show');
+            $("#msgBody").html(m);
+        }
+
+        function confirm() {
+            window.location.href = "/confirm";
+        }
+
+        function toThanks() {
+            window.location.href = "/thanks";
+        }
+    </script>
+</html>
