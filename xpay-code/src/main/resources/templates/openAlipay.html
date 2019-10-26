@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>XPay支付宝收银台</title>
+        <script src="https://gw.alipayobjects.com/as/g/h5-lib/alipayjsapi/3.1.1/alipayjsapi.min.js"></script>
+        <!-- 主文件 -->
+        <link rel="stylesheet" href="https://gw.alipayobjects.com/as/g/antui/antui/10.1.32/dpl/antui.css"/>
+        <!-- 组件 -->
+        <link rel="stylesheet" href="https://gw.alipayobjects.com/as/g/antui/antui/10.1.32/??dpl/widget/message.css,dpl/icon/message.css,dpl/widget/search.css"/>
+        <link rel="stylesheet" href="https://gw.alipayobjects.com/as/g/antui/antui/10.1.32/dpl/widget/notice.css">
+        <link rel="stylesheet" href="https://gw.alipayobjects.com/as/g/antui/antui/10.1.32/dpl/widget/tips.css">
+        <link rel="stylesheet" href="https://gw.alipayobjects.com/as/g/antui/antui/10.1.32/dpl/widget/dialog.css">
+        <!-- js -->
+        <script src="https://gw.alipayobjects.com/as/g/antui/antui/10.1.32/antui.js"></script>
+    </head>
+    <style>
+        .am-notice .am-notice-content {
+            -webkit-flex: 1;
+            overflow: hidden;
+            margin-left: 15px;
+            margin-right: 5px;
+            padding-left: 25px;
+        }
+    </style>
+
+    <body>
+        <div class="am-notice" role="alert" id="alert">
+            <div class="am-notice-content">由于客户端版本问题，部分设备可能无法跳转支付</div>
+            <div class="am-notice-operation">
+                <a onclick="closeAlert()" class="am-notice-close" role="button"></a>
+            </div>
+        </div>
+        <div class="am-message result">
+            <i id="icon-wait" class="am-icon result wait"></i>
+            <i id="icon-fail" style="display: none" class="am-icon result warn"></i>
+            <div id="waiting" class="am-message-main">等待跳转支付...</div>
+            <div class="am-message-sub">若无法自动跳转支付请点击下方立即支付按钮</div>
+        </div>
+        <div class="am-button-wrap">
+            <!--<button class="am-button blue" onclick="showDialog()">扫码支付</button>-->
+            <button class="am-button blue" onclick="showAction()">立即支付</button>
+            <button class="am-button white" onclick="returnApp()">取消支付</button>
+        </div>
+        <div class="am-tips am-tips-block am-tips-favorite" id="tip">
+            <div class="am-tips-wrap">
+                <div class="am-tips-close" onclick="closeTip()">关闭</div>
+                <div class="am-tips-icon">
+                    <img src="assets/images/zfb.png">
+                </div>
+                <div class="am-tips-content am-ft-ellipsis">
+                    若无法跳转请点击“立即支付”
+                </div>
+                <div class="am-tips-action" role="button" onclick="closeTip()">
+                    知道了
+                </div>
+            </div>
+        </div>
+
+        <div class="am-dialog-mask show" id="dialog-mask" style="display: none"></div>
+        <div class="am-dialog image show" role="dialog" id="dialog" style="display: none">
+            <div class="am-dialog-wrap">
+                <div class="am-dialog-img fill">
+                    <img src="assets/images/alireamrk.png" width="85%" height="150">
+                </div>
+                <div class="am-dialog-header">
+                    <h3 id="title">订单标识号：<span id="num1"></span></h3>
+                </div>
+                <div class="am-dialog-body">
+                    <p class="am-dialog-brief" id="content">支付时请输入金额：<span id="money"></span>，备注中输入标识号：<span id="num2"></span></p>
+                </div>
+                <div class="am-dialog-footer">
+                    <a id="btn2" type="button" class="am-dialog-button" style="display: block;" onclick="customPay()">知道了，立即支付</a>
+                </div>
+                <a class="am-dialog-close" onclick="closeDialog()"></a>
+            </div>
+        </div>
+
+        <div class="am-dialog-mask show" id="dialog-mask2" style="display: none"></div>
+        <!-- A11Y: 对话框隐藏时设置 aria-hidden="true"，显示时设置 aria-hidden="false" -->
+        <div class="am-dialog show" role="dialog" id="dialog2" style="display: none">
+            <div class="am-dialog-wrap">
+                <div class="am-dialog-header">
+                    <h3>请务必选择"普通红包"支付</h3>
+                </div>
+                <div class="am-dialog-body">
+                    <p class="am-dialog-brief">请勿修改红包内金额或备注，若系统超过24小时未领取，金额将自动退回您的账户</p>
+                </div>
+                <div class="am-dialog-footer">
+                    <button type="button" class="am-dialog-button" onclick="redPay()">知道了，立即支付</button>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+
+        // 判断是否支付宝内打开
+        var ua = window.navigator.userAgent.toLowerCase();
+        if (ua.indexOf("alipay")<0) {
+            location.href = "http://xpay.exrick.cn";
+        }
+
+        function GetRequest() {
+            var url = window.location.search; //获取url中"?"符后的字串
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1);
+                strs = str.split("&");
+                for(var i = 0; i < strs.length; i ++) {
+                    theRequest[strs[i].split("=")[0]] = decodeURIComponent(strs[i].split("=")[1]);
+                }
+            }
+            return theRequest;
+        }
+
+        var params = GetRequest();
+        var money = params['money']
+        var num = params['num']
+
+        // 替换你的支付宝userId
+        var userId = "2088012242122163";
+
+        // 替换你的自定义金额收款码
+        var customUrl = "HTTPS://QR.ALIPAY.COM/FKX056982J2XQG6ZOJHOC2";
+
+        // 如需红包模式请配置如下信息（正规个人收款没必要使用）
+        var account = "18782059038"; // 支付宝账号（打开支付宝app点击我的上方-个人主页即可看到支付宝账户）
+        var nickName = "Exrick"; // 支付宝昵称（打开支付宝app点击我的上方-个人主页头像下方即你的昵称）
+
+        // 如需银行卡转账模式请填写如下信息（正规个人收款没必要使用）
+        var bankAccount = "演示使用，请勿支付"; // 持卡人姓名
+        var cardNo = "1234567890123456789"; // 银行卡卡号
+        var bankMark = "BOC"; // 银行缩写简写 其他例如CCB中国建设银行 其他自行百度
+        var bankName = "中国银行"; // 银行完整名称
+
+        var url = 'alipays://platformapi/startapp?appId=20000123&actionType=scan&biz_data=' +
+            '{"s": "money","u": "'+userId+'","a": "'+money+'","m": "'+encodeURIComponent(num)+'"}';
+
+        var bankUrl = "https://ds.alipay.com/?from=pc&appId=09999988&actionType=toCard&sourceId=bill&" +
+            "cardNo="+cardNo+"&bankAccount="+encodeURIComponent(bankAccount)
+            +"&money="+money+"&amount="+money+"&bankMark="+bankMark+"&bankName="+encodeURIComponent(bankName)+"&tdsourcetag=s_pctim_aiomsg";
+
+        var redUrl = "alipays://platformapi/startapp?appId=88886666&appLaunchMode=3&canSearch=false&chatLoginId="+account
+            +"&chatUserId="+userId+"&chatUserName="+nickName+"&chatUserType=1&entryMode=personalStage&prevBiz=chat&schemaMode=portalInside&target=personal" +
+            "&money="+money+"&amount="+money+"&remark="+num;
+
+        var friendUrl = "alipays://platformapi/startapp?appId=20000186&actionType=addfriend&userId=" + userId + "&loginId=" + account + "&source=by_f_v&alert=true";
+
+        function customPay() {
+            location.href = customUrl;
+        }
+
+        function redPay() {
+            document.getElementById("dialog-mask2").style.display = "none";
+            document.getElementById("dialog2").style.display = "none";
+
+            // 加好友
+            location.href = friendUrl;
+            // 延时启动红包
+            setTimeout(function() {
+                location.href = redUrl;
+            }, 888);
+
+        }
+
+        document.getElementById("money").innerText = money;
+        document.getElementById("num1").innerText = num;
+        document.getElementById("num2").innerText = num;
+
+        function returnApp() {
+            AlipayJSBridge.call("exitApp")
+        }
+
+        function closeAlert() {
+            document.getElementById("alert").style.display = "none";
+        }
+
+        function closeTip() {
+            document.getElementById("tip").style.display = "none";
+        }
+
+        function closeDialog() {
+            document.getElementById("dialog-mask").style.display = "none";
+            document.getElementById("dialog").style.display = "none";
+        }
+
+        function showDialog() {
+            document.getElementById("dialog-mask").style.display = "block";
+            document.getElementById("dialog").style.display = "block";
+        }
+
+        function showDialog2() {
+            document.getElementById("dialog-mask2").style.display = "block";
+            document.getElementById("dialog2").style.display = "block";
+        }
+
+        function ready(a) {
+            window.AlipayJSBridge ? a && a() : document.addEventListener("AlipayJSBridgeReady", a, !1)
+        }
+
+        function showAction() {
+            AlipayJSBridge.call('actionSheet',{
+                'title': '选择支付方式',
+                'btns': ['立即支付', '收款码支付(推荐)','普通红包支付','银行卡转账(演示)'],
+                'cancelBtn': '取消',
+            }, function(data) {
+                switch (data.index) { // index标示用户点击的按钮，在actionSheet中的位置，从0开始
+                    case 0:
+                        // 无法修改金额
+                        location.href = 'alipays://platformapi/startapp?appId=20000123&actionType=scan&biz_data=' +
+                            decodeURIComponent('{"s": "money","u": "'+userId+'","a": "'+money+'","m": "'+num+'"}');
+                        break;
+                    case 1:
+                        // 转账码
+                        // location.href = 'alipays://platformapi/startapp?appId=09999988&actionType=toAccount&goBack=NO' +
+                        //     '&userId='+userId+'&amount='+money+'&memo='+num;
+                        // break;
+                        showDialog();
+                        break;
+                    case 2:
+                        // 红包
+                        showDialog2();
+                        break;
+                    case 3:
+                        // 银行卡转账
+                        location.href = bankUrl;
+                        break;
+                }
+            });
+        }
+
+        ready(function() {
+            AlipayJSBridge.call('setTitle', {
+                title: 'XPay支付宝收银台'
+            });
+
+            var a = {
+                actionType: "scan",
+                u: userId,
+                a: money,
+                m: num,
+                biz_data: {
+                    s: "money",
+                    u: userId,
+                    a: money,
+                    m: num,
+                }
+            }
+//            AlipayJSBridge.call('pushWindow', {
+//                url: 'alipays://platformapi/startapp?appId=20000123&actionType=scan&biz_data=' +
+//                '{"s": "money","u": "'+userId+'","a": "'+money+'","m": "='+num+'="}'
+//            },function (a) {
+//                if(a.errorCode==4){
+//                    alert("跳转支付失败，请保存二维码扫码支付")
+//                }
+//            });
+            AlipayJSBridge.call("startApp", {
+                appId: "20000123",
+                param: a
+            }, function (a) {
+                if (a.errorCode == 4) {
+                    document.getElementById("icon-wait").style.display = "none";
+                    document.getElementById("icon-fail").style.display = "block";
+                    document.getElementById("waiting").innerText = "自动跳转支付失败";
+                    alert("跳转支付失败，请点击立即支付")
+                }
+            });
+        });
+
+//        document.addEventListener("resume", function(a) {
+//            returnApp()
+//        });
+    </script>
+</html>

@@ -1,0 +1,483 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>XPay个人收款支付系统v2.0 完全免费开源 个人支付宝、微信、QQ免签支付 支付宝转账码 个人免签支付 支持移动端支付</title>
+        <meta name="keywords" content="XPay个人收款支付系统,个人免签支付,个人支付接口,免签约,无需第三方SDK,完全免费,支付宝,微信,移动端支付">
+        <meta name="description" content="XPay个人收款支付系统 个人免签支付 个人支付接口 完全免费 免签约 支付宝转账码 无需第三方SDK 个人支付宝、微信、QQ免签支付 支持移动端支付 无视支付宝风控">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="favicon.ico">
+
+        <!--<link rel="stylesheet" href="assets/css/swiper.min.css">-->
+        <link rel="stylesheet" href="assets/css/animate.css">
+        <link rel="stylesheet" href="assets/css/iconfont.css">
+        <!--<link rel="stylesheet" href="assets/css/font-awesome.min.css">-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <!--<link rel="stylesheet" href="assets/css/bootstrap.min.css">-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <!--<link rel="stylesheet" href="assets/css/magnific-popup.css">-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.1/magnific-popup.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/bootsnav2.css">
+
+        <!--For Plugins external css-->
+        <!--<link rel="stylesheet" href="assets/css/plugins.css" />-->
+        <!--Theme custom css -->
+        <link rel="stylesheet" href="assets/css/style.css">
+    
+        <!--Theme Responsive css-->
+        <link rel="stylesheet" href="assets/css/responsive.css" />
+
+        <link href="assets/css/demo_table.css" rel="stylesheet" />
+
+        <link rel="stylesheet" href="assets/css/thanks.css">
+
+        <link href="assets/css/style3.css" rel="stylesheet">
+
+        <!--<script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>-->
+
+        <script>
+            (function(h,o,t,j,a,r){
+                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                h._hjSettings={hjid:734009,hjsv:6};
+                a=o.getElementsByTagName('head')[0];
+                r=o.createElement('script');r.async=1;
+                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                a.appendChild(r);
+            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+        </script>
+
+    </head>
+
+    <body data-spy="scroll" data-target=".navbar-collapse" style="background:#f1f2f7">
+
+        <div class="culmn">
+            <!--Home page style-->
+
+            <nav class="navbar navbar-default bootsnav navbar-fixed white no-background" style="border-bottom: solid 1px #e0e0e0;background-color: #fff;">
+                <div class="container">  
+
+                    <!-- Start Atribute Navigation -->
+                    <div class="attr-nav">
+                        <ul>
+                            <li><a href="https://github.com/Exrick/xpay" target="_blank" title="Github"><i class="fa fa-github" style="font-size:21px"></i></a></li>
+                            <li><a href="http://blog.exrick.cn" target="_blank" title="作者博客"><i class="fa fa-user-circle" style="font-size:18px"></i></a></li>
+                            <li><a><i class="fa fa-qrcode" style="font-size:19px" title="免费交流群 562962309" data-container="body" data-toggle="popover" data-placement="bottom"
+                                data-html="true" data-content="<img src='assets/images/qq-qr.png' width='200'>" data-trigger="hover"></i></a></li>
+                        </ul>
+                    </div>        
+                    <!-- End Atribute Navigation -->
+
+
+                    <!-- Start Header Navigation -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <a class="navbar-brand" href="index">
+                            <img src="assets/images/footer-logo.png" class="logo logo-display" alt="">
+                            <img style="margin: 20px -30px 0 0;" src="assets/images/footer-logo.png" class="logo logo-scrolled" alt="">
+                        </a>
+
+                    </div>
+                    <!-- End Header Navigation -->
+
+                    <!-- navbar menu -->
+                    <div class="collapse navbar-collapse" id="navbar-menu">
+                        <ul class="nav navbar-nav navbar-center">
+                            <li><a href="index">首页</a></li>
+                            <li><a href="pay">支付体验</a></li>
+                            <li><a href="thanks">捐赠名单</a></li>
+                            <li><a href="http://xmall.exrick.cn" target="_blank">XMall商城</a></li>
+                            <li><a href="http://xboot.exrick.cn" target="_blank">XBoot开发平台</a></li>
+                            <li><a href="https://github.com/Exrick/xpay" target="_blank">开发教程</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div>   
+          </nav>
+
+            <!--Featured Section-->
+            <section id="features" class="features" style="font-size: 13px">
+                <div class="container">
+                    <div class="row">
+                        <div class="main_features p-top-100">
+                            
+                                <section class="panel" style="">
+                                        <header class="panel-heading tab-bg-white">
+                                            <ul class="nav nav-tabs">
+                                                <li class="active">
+                                                    <a data-toggle="tab" href="#about-2">
+                                                        <i class="fa fa-heart" aria-hidden="true"></i>
+                                                        捐赠名单
+                                                    </a>
+                                                </li>
+                                                <li class="">
+                                                    <a data-toggle="tab" href="#contact-2">
+                                                       <i class="fa fa-meh-o" aria-hidden="true"></i>
+                                                        支付不起的人
+                                                    </a>
+                                                </li>
+                                                <li class="">
+                                                    <a data-toggle="tab" href="#check-2">
+                                                        <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                                                        系统审核中
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </header>
+                                        <div class="panel-body">
+                                            <div class="tab-content">
+                                                <div id="about-2" class="tab-pane active">
+                                                    <div class="adv-table">
+                                                        <div class="clearfix">
+                                                            <div class="thank">
+                                                                佛祖保佑这些好心人写程序永无BUG，工资翻倍，长命百岁，迎娶白富美，走上人生巅峰！<br>
+                                                                若支付后长时间未收到邮件请到垃圾邮件中查找或点击右侧反馈按钮进行反馈
+                                                            </div>
+                                                        </div>
+                                                        <div class="clearfix">
+                                                            <div class="btn-group pull-right">
+                                                                <button class="btn btn-info" onclick="refresh1()"><i class="fa fa-refresh" aria-hidden="true"></i>&nbsp;&nbsp;刷 新</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="space15"></div>
+                                                        <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="table1" width="100%">
+                                                            <thead>
+                                                            <tr>
+                                                                <th width="20%">昵称</th>
+                                                                <th width="10%">捐赠方式</th>
+                                                                <th width="20%">捐赠金额(￥)</th>
+                                                                <th width="20%">捐赠人留言</th>
+                                                                <th width="10%">状态</th>
+                                                                <th width="20%">捐赠时间</th>
+                                                            </tr>
+                                                            </thead>
+                                                        </table>
+                            
+                                                    </div>
+                                                </div>
+                                                <div id="contact-2" class="tab-pane ">
+                                                    <div class="adv-table">
+                                                        <div class="thank">
+                                                            以下数据系统将于每日凌晨自动清除
+                                                        </div>
+                                                        <div class="clearfix">
+                                                            <div class="btn-group pull-right">
+                                                                <button class="btn btn-info" onclick="refresh2()"><i class="fa fa-refresh" aria-hidden="true"></i>&nbsp;&nbsp;刷 新</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="space15"></div>
+                                                        <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="table2" width="100%">
+                                                            <thead>
+                                                            <tr>
+                                                                <th width="20%">昵称</th>
+                                                                <th width="10%">支付方式</th>
+                                                                <th width="20%">支付金额(￥)</th>
+                                                                <th width="20%">留言</th>
+                                                                <th width="10%">状态</th>
+                                                                <th width="20%">订单创建时间</th>
+                                                            </tr>
+                                                            </thead>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div id="check-2" class="tab-pane ">
+                                                    <div class="adv-table">
+                                                        <div class="thank">
+                                                            若支付后长时间未收到邮件请到垃圾邮件中查找或点击右侧反馈按钮进行反馈
+                                                        </div>
+                                                        <div class="clearfix">
+                                                            <div class="btn-group pull-right">
+                                                                <button class="btn btn-info" onclick="refresh3()"><i class="fa fa-refresh" aria-hidden="true"></i>&nbsp;&nbsp;刷 新</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="space15"></div>
+                                                        <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="table3" width="100%">
+                                                            <thead>
+                                                            <tr>
+                                                                <th width="20%">昵称</th>
+                                                                <th width="10%">支付方式</th>
+                                                                <th width="20%">支付金额(￥)</th>
+                                                                <th width="20%">留言</th>
+                                                                <th width="10%">状态</th>
+                                                                <th width="20%">订单创建时间</th>
+                                                            </tr>
+                                                            </thead>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+
+                        </div>
+                    </div><!-- End off row -->
+                </div><!-- End off container -->
+            </section><!-- End off Featured Section-->
+
+            <!-- scroll up-->
+            <div class="scrollup">
+                <a href="#"><i class="fa fa-chevron-up"></i></a>
+            </div><!-- End off scroll up -->
+            
+            
+            <footer id="footer" class="footer bg-black">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <nav class="navbar navbar-default bootsnav footer-menu no-background">
+                                <div class="container">  
+
+                                    <!-- Start Atribute Navigation -->
+                                    <div class="attr-nav">
+                                        <ul>
+                                            <li>
+                                                <a href="https://github.com/Exrick/xpay" target="_blank" title="Github">
+                                                    <i class="fa fa-github" style="font-size:21px"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="http://blog.exrick.cn" target="_blank" title="作者博客">
+                                                    <i class="fa fa-user-circle" style="font-size:18px"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a>
+                                                    <i class="fa fa-qrcode" style="font-size:19px" title="免费交流群 562962309" data-container="body" data-toggle="popover" data-placement="top"
+                                                        data-html="true" data-content="<img src='assets/images/qq-qr.png' width='150'>" data-trigger="hover"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- End Atribute Navigation -->
+
+
+                                    <!-- Start Header Navigation -->
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-footer">
+                                            <i class="fa fa-bars"></i>
+                                        </button>
+                                        <a class="navbar-brand" href="index"><img style="margin: 20px -30px 0 0;" src="assets/images/footer-logo.png" class="logo" alt=""></a>
+                                    </div>
+                                    <!-- End Header Navigation -->
+
+                                    <!-- navbar menu -->
+                                    <div class="collapse navbar-collapse" id="navbar-footer">
+                                        <ul class="nav navbar-nav navbar-center">
+                                            <li><a href="index">首页</a></li>
+                                            <li><a href="pay">支付体验</a></li>
+                                            <li><a href="thanks">捐赠名单</a></li>
+                                            <li><a href="http://xmall.exrick.cn" target="_blank">XMall商城</a></li>
+                                            <li><a href="http://xboot.exrick.cn" target="_blank">XBoot开发平台</a></li>
+                                            <li><a href="https://github.com/Exrick/xpay" target="_blank">开发教程</a></li>
+                                        </ul>
+                                    </div><!-- /.navbar-collapse -->
+                                </div>   
+                            </nav>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="col-md-12">
+                            <div class="main_footer text-center p-top-40 p-bottom-30">
+                                <p class="wow fadeInRight" data-wow-duration="1s">
+                                    <a href="http://blog.exrick.cn/" target="_blank">xpay.exrick.cn </a> ©2017-Present. All Rights Reserved
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+
+        <!-- JS includes -->
+
+        <!--<script src="assets/js/vendor/jquery-1.11.2.min.js"></script>-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <!--<script src="assets/js/vendor/bootstrap.min.js"></script>-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+        <!--<script src="assets/js/jquery.magnific-popup.js"></script>-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.1/jquery.magnific-popup.min.js"></script>
+        <!--<script src="assets/js/jquery.easing.1.3.js"></script>-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.compatibility.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.0/js/swiper.jquery.min.js"></script>
+        <script src="assets/js/bootsnav.js"></script>
+
+        <script src="assets/js/plugins.js"></script>
+        <script src="assets/js/main.js"></script>
+
+        <!-- <script type="text/javascript" language="javascript" src="assets/js/jquery.js"></script> -->
+        <!--<script type="text/javascript" language="javascript" src="assets/js/jquery.dataTables.min.js"></script>-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.15/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="assets/js/DT_bootstrap.js"></script>
+
+    </body>
+    <script>
+        $("[data-toggle='popover']").popover();
+
+        /*时间转换 精确到分 yyyy-MM-dd HH:mm*/
+        function dateToMin(data){
+
+            if(data==null||data==""){
+                return "";
+            }
+            var time = new Date(data);
+            var y = time.getFullYear();//年
+            var m = time.getMonth() + 1;//月
+            if (m >= 0 && m <= 9) {
+                m = "0" + m;
+            }
+            var d = time.getDate();//日
+            if (d >= 0 && d <= 9) {
+                d = "0" + d;
+            }
+            var h = time.getHours();//时
+            if (h >= 0 && h <= 9) {
+                h = "0" + h;
+            }
+            var mm = time.getMinutes();//分
+            if (mm >= 0 && mm <= 9) {
+                mm = "0" + mm;
+            }
+            return (y+"-"+m+"-"+d+" "+h+":"+mm);
+        }
+
+        /*刷新表格*/
+        function refresh1(){
+            var table = $('#table1').DataTable();
+            table.ajax.reload(null,false);// 刷新表格数据，分页信息不会重置
+        }
+
+        function refresh2(){
+            var table = $('#table2').DataTable();
+            table.ajax.reload(null,false);// 刷新表格数据，分页信息不会重置
+        }
+
+        function refresh3(){
+            var table = $('#table3').DataTable();
+            table.ajax.reload(null,false);// 刷新表格数据，分页信息不会重置
+        }
+
+        $(document).ready(function(){
+            initTable1();
+            initTable2();
+            initTable3();
+        });
+
+        function initTable1() {
+            var table1 = $('#table1').dataTable( {
+                serverSide: true,//开启服务器模式
+                "processing": true,   // 加载显示提示
+                "ajax": {
+                    url:"/thanks/list",
+                    type: 'GET'
+                },
+                "columns": [
+                    { "data": "nickName"},
+                    { "data": "payType"},
+                    { "data": "money"},
+                    { "data": "info"},
+                    {
+                        "data": null,
+                        render: function (data, type, row, meta) {
+                            return "<div style='text-align: center'><span class=\"label label-success label-mini\">支付成功</span></div>";
+                        }
+                    },
+                    {
+                        "data": "createTime",
+                        render: function (data, type, row, meta) {
+                            return dateToMin(data);
+                        }
+                    }
+                ],
+                "aoColumnDefs": [
+                    { "bSortable": false, "aTargets": [ 2,4 ] } //制定列不参与排序
+                ],
+                "aaSorting": [ [5,"desc"] ],  // 默认排序
+                "pageLength": 10, // 默认显示数量
+                "lengthMenu": [ 5, 10, 25 ], // 页面大小选择
+                "info": false, //关闭左下角
+                language: {
+                    url: 'assets/css/fonts/Chinese.json'
+                }
+            });
+        }
+
+        function initTable2() {
+            var table1 = $('#table2').dataTable( {
+                "processing": true,   // 加载显示提示
+                "ajax": {
+                    url:"/pay/list",
+                    type: 'GET'
+                },
+                "columns": [
+                    { "data": "nickName"},
+                    { "data": "payType"},
+                    { "data": "money"},
+                    { "data": "info"},
+                    {
+                        "data": null,
+                        render: function (data, type, row, meta) {
+                            return "<div style='text-align: center'><span class=\"label label-danger label-mini\">支付失败</span></div>";
+                        }
+                    },
+                    {
+                        "data": "createTime",
+                        render: function (data, type, row, meta) {
+                            return dateToMin(data);
+                        }
+                    }
+                ],
+                "aoColumnDefs": [
+                    { "bSortable": false, "aTargets": [  ] } //制定列不参与排序
+                ],
+                "aaSorting": [ [5,"desc"] ],  // 默认排序
+                "pageLength": 10, // 默认显示数量
+                "lengthMenu": [ 5, 10, 25, 50 ], // 页面大小选择
+                language: {
+                    url: 'assets/css/fonts/Chinese.json'
+                }
+            });
+        }
+
+        function initTable3() {
+            var table1 = $('#table3').dataTable( {
+                "processing": true,   // 加载显示提示
+                "ajax": {
+                    url:"/pay/check/list",
+                    type: 'GET'
+                },
+                "columns": [
+                    { "data": "nickName"},
+                    { "data": "payType"},
+                    { "data": "money"},
+                    { "data": "info"},
+                    {
+                        "data": null,
+                        render: function (data, type, row, meta) {
+                            return "<div style='text-align: center'><span class=\"label label-warning label-mini\">审核中</span></div>";
+                        }
+                    },
+                    {
+                        "data": "createTime",
+                        render: function (data, type, row, meta) {
+                            return dateToMin(data);
+                        }
+                    }
+                ],
+                "aoColumnDefs": [
+                    { "bSortable": false, "aTargets": [  ] } //制定列不参与排序
+                ],
+                "aaSorting": [ [5,"desc"] ],  // 默认排序
+                "pageLength": 10, // 默认显示数量
+                "lengthMenu": [ 5, 10, 25, 50 ], // 页面大小选择
+                language: {
+                    url: 'assets/css/fonts/Chinese.json'
+                }
+            });
+        }
+       
+    </script>
+</html>

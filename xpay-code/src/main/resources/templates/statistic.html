@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>支付数据统计</title>
+    <meta name="description" content="XPay个人收款支付系统 无需签约 无需第三方SDK 完全免费">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mui/3.7.1/css/mui.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/mui.picker.min.css" />
+    <style>
+        .mui-card-header>img:first-child {
+            font-size: 0;
+            line-height: 0;
+            float: left;
+            width: 34px;
+            height: 30px;
+            width: 166px;
+            margin: auto;
+        }
+
+        .mui-btn-my {
+            color: #fff;
+            border: 1px solid #007aff;
+            background-color: #007aff;
+            width: 90%;
+        }
+
+        .fake {
+            padding: 8px 15px 0 15px;
+            height: 45px;
+            font-size: 15px;
+            color: #7e7777;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+<form class="mui-input-group">
+    <div class="mui-card-header">
+        <img src="https://i.loli.net/2018/10/08/5bbaf3af87091.png">
+    </div>
+    <div class="mui-input-row">
+        <label>时间选择</label>
+        <input type="text" id="type" class="mui-input-clear" value="今日" onclick="selectDate()" readonly>
+    </div>
+    <div id="time" style="display: none">
+        <div class="mui-input-row">
+            <label>起始时间</label>
+            <input type="text" id="start" class="mui-input-clear" onclick="selectStartTime()" readonly>
+        </div>
+        <div class="mui-input-row">
+            <label>结束时间</label>
+            <input type="text" id="end" class="mui-input-clear" onclick="selectEndTime()" readonly>
+        </div>
+    </div>
+    <div class="mui-input-row">
+        <label>总金额</label>
+        <input type="text" id="amount" class="mui-input-clear" readonly>
+    </div>
+    <div class="mui-input-row">
+        <label>支付宝</label>
+        <input type="text" id="alipay" class="mui-input-clear" readonly>
+    </div>
+    <div class="mui-input-row">
+        <label>微信</label>
+        <input type="text" id="wechat" class="mui-input-clear" readonly>
+    </div>
+    <div class="mui-input-row">
+        <label>QQ</label>
+        <input type="text" id="qq" class="mui-input-clear" readonly>
+    </div>
+    <div class="mui-input-row">
+        <label>云闪付</label>
+        <input type="text" id="union" class="mui-input-clear" readonly>
+    </div>
+    <div class="mui-input-row">
+        <label>扫码点单</label>
+        <input type="text" id="diandan" class="mui-input-clear" readonly>
+    </div>
+
+    <div class="mui-button-row">
+        <button type="button" class="mui-btn mui-btn-my" onclick="query()">统计查询</button>
+    </div>
+</form>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mui/3.7.1/js/mui.min.js"></script>
+<script src="assets/js/mui.dtpicker.js"></script>
+<script src="assets/js/mui.picker.all.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+
+    //获取url中的参数
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r != null) return unescape(r[2]); return null; //返回参数值
+    }
+
+    var myToken=getUrlParam('myToken');
+
+    var type=0,start,end;
+
+    function selectDate() {
+        var picker = new mui.PopPicker();
+        picker.setData(
+            [
+                {value:'0',text:'今日'},
+                {value:'6',text:'昨天'},
+                {value:'1',text:'本周'},
+                {value:'2',text:'本月'},
+                {value:'3',text:'本年'},
+                {value:'4',text:'上周'},
+                {value:'5',text:'上月'},
+                {value:'-1',text:'总额统计'},
+                {value:'-2',text:'自定义范围'}
+            ]
+        );
+        picker.show(function (selectItems) {
+            $("#type").val(selectItems[0].text);
+            type = selectItems[0].value;
+            if(type=="-2"){
+                $("#time").css("display","block");
+            }else{
+                $("#time").css("display","none");
+            }
+            query();
+        })
+    }
+
+    var dtPicker = new mui.DtPicker({type: "date",//设置日历初始视图模式
+        labels: ['年', '月', '日']//设置默认标签区域提示语
+    });
+
+    function selectStartTime(){
+        dtPicker.show(function (s) {
+            $("#start").val(s.value);
+            start=s.value;
+        });
+    }
+
+    function selectEndTime(){
+        dtPicker.show(function (s) {
+            $("#end").val(s.value);
+            end = s.value;
+            query();
+        });
+    }
+
+    function message(m){
+        mui.toast(m,{ duration:'long', type:'div' })
+    }
+
+    query();
+
+    function query(){
+        $.post('/pay/statistic',
+            {
+                type: type,
+                myToken: myToken,
+                start: start,
+                end: end
+            },
+            function (data, status) {
+                if(data.success==true){
+                    $("#amount").val(data.result.amount);
+                    $("#alipay").val(data.result.alipay);
+                    $("#wechat").val(data.result.wechat);
+                    $("#qq").val(data.result.qq);
+                    $("#union").val(data.result.union);
+                    $("#diandan").val(data.result.diandan);
+                }else{
+                    message(data.message)
+                }
+            });
+    }
+</script>
+</html>

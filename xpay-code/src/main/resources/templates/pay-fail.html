@@ -1,0 +1,52 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <title>支付失败</title>
+        <meta name="description" content="XPay个人收款支付系统 无需签约 无需第三方SDK 完全免费">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+        </style>
+    </head>
+
+    <body>
+            <div class="main">
+                <table align="center" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td height="20"></td>
+                    </tr>
+                    <!-- content -->
+                    <tr>
+                        <td style="font-size:13px; color:#7f8c8d; line-height:26px;" align="center">
+                            <img src="https://i.loli.net/2018/07/18/5b4f37c2d5327.png" width="50">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size:13px; color:#7f8c8d; line-height:26px;" align="center">
+                            由于您支付不起或其他原因，您的订单支付失败！
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size:13px; color:#7f8c8d; line-height:26px;" align="center">
+                            昵称：<span th:text="${nickName}"></span>，
+                            支付金额：<span th:text="${money}"></span>，
+                            支付方式：<span th:text="${payType}"></span>，
+                            留言：<span th:text="${info}"></span>，
+                            创建时间：<span th:text="${time}"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size:13px; color:#7f8c8d; line-height:26px;" align="center">
+                            您还可以到XPay官网继续支付或查看您的支付失败记录（该支付失败记录将于今日凌晨自动删除）：
+                            <a href="http://xpay.exrick.cn/thanks">http://xpay.exrick.cn/thanks</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size:13px; color:#7f8c8d; line-height:26px;" align="center">
+                            Powered By <a href="https://github.com/Exrick/xpay">XPay v2.0</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+    </body>
+</html>

@@ -1,0 +1,230 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>XPay个人收款支付系统v2.0 完全免费开源 个人支付宝、微信、QQ免签支付 个人免签支付 支付宝转账码 支持移动端支付</title>
+        <meta name="keywords" content="XPay个人收款支付系统,个人免签支付,个人支付接口,免签约,无需第三方SDK,完全免费,支付宝,微信,移动端支付">
+        <meta name="description" content="XPay个人收款支付系统 个人免签支付 个人支付接口 完全免费 免签约 支付宝转账码 无需第三方SDK 个人支付宝、微信、QQ免签支付 支持移动端支付 无视支付宝风控">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="favicon.ico">
+
+        <!--<link rel="stylesheet" href="assets/css/swiper.min.css">-->
+        <link rel="stylesheet" href="assets/css/animate.css">
+        <link rel="stylesheet" href="assets/css/iconfont.css">
+        <!--<link rel="stylesheet" href="assets/css/font-awesome.min.css">-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <!--<link rel="stylesheet" href="assets/css/bootstrap.min.css">-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <!--<link rel="stylesheet" href="assets/css/magnific-popup.css">-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.1/magnific-popup.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/bootsnav2.css">
+
+        <!--For Plugins external css-->
+        <!--<link rel="stylesheet" href="assets/css/plugins.css" />-->
+        <!--Theme custom css -->
+        <link rel="stylesheet" href="assets/css/style.css">
+    
+        <!--Theme Responsive css-->
+        <link rel="stylesheet" href="assets/css/responsive.css" />
+
+        <link rel="stylesheet" href="assets/css/pay.css">
+
+        <!--<script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>-->
+        <!--<script src="https://cdn.bootcss.com/modernizr/2.8.2/modernizr.min.js"></script>-->
+
+    </head>
+<style>
+    p{
+        margin-bottom: 10px;
+    }
+</style>
+    <body data-spy="scroll" data-target=".navbar-collapse" style="background:#f1f2f7">
+
+        <div class="culmn">
+            <!--Home page style-->
+
+            <nav class="navbar navbar-default bootsnav navbar-fixed white no-background" style="border-bottom: solid 1px #e0e0e0;background-color: #fff;">
+                <div class="container">  
+
+                    <!-- Start Atribute Navigation -->
+                    <div class="attr-nav">
+                        <ul>
+                            <li><a href="https://github.com/Exrick/xpay" target="_blank" title="Github"><i class="fa fa-github" style="font-size:21px"></i></a></li>
+                            <li><a href="http://blog.exrick.cn" target="_blank" title="作者博客"><i class="fa fa-user-circle" style="font-size:18px"></i></a></li>
+                            <li><a><i class="fa fa-qrcode" style="font-size:19px" title="免费交流群 562962309" data-container="body" data-toggle="popover" data-placement="bottom"
+                                data-html="true" data-content="<img src='assets/images/qq-qr.png' width='200'>" data-trigger="hover"></i></a></li>
+                        </ul>
+                    </div>        
+                    <!-- End Atribute Navigation -->
+
+
+                    <!-- Start Header Navigation -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <a class="navbar-brand" href="index">
+                            <img src="assets/images/footer-logo.png" class="logo logo-display" alt="">
+                            <img src="assets/images/footer-logo.png" class="logo logo-scrolled" alt="">
+                        </a>
+
+                    </div>
+                    <!-- End Header Navigation -->
+
+                    <!-- navbar menu -->
+                    <div class="collapse navbar-collapse" id="navbar-menu">
+                        <ul class="nav navbar-nav navbar-center">
+                            <li><a href="index">首页</a></li>
+                            <li><a href="pay">支付体验</a></li>
+                            <li><a href="thanks">捐赠名单</a></li>
+                            <li><a href="http://xmall.exrick.cn" target="_blank">XMall商城</a></li>
+                            <li><a href="http://xboot.exrick.cn" target="_blank">XBoot开发平台</a></li>
+                            <li><a href="https://github.com/Exrick/xpay" target="_blank">开发教程</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div>   
+          </nav>
+
+            <!--Featured Section-->
+            <section id="features" class="features">
+                <div class="container">
+                    <div class="row">
+                        <div class="main_features p-top-100">
+                            
+                            <div class="gray-box">
+                                <div class="title">
+                                  <h2>支付成功</h2>
+                                </div>
+                                <!--内容-->
+                                <div>
+                                    <div class="content" style="min-height:28vw">
+                                        <p class=""><i class="fa fa-check-circle icon-success" aria-hidden="true"></i>&nbsp;&nbsp;恭喜您支付成功，请等待5-30分钟系统确认</p>
+                                        <p style="margin-bottom: 20px;">总共花费 <span class="myprice" id="money"></span> 元</p>
+                                        <input type="text" class="main-btn mybtn" value="查看结果" onclick="submit1()" readonly>
+                                        <input type="text" class="main-btn mybtn" value="继续支付" onclick="submit2()" readonly>
+                                    </div>
+                                </div>
+                                  
+                              </div>
+
+                        </div>
+                    </div><!-- End off row -->
+                </div><!-- End off container -->
+            </section><!-- End off Featured Section-->
+
+            <!-- scroll up-->
+            <div class="scrollup">
+                <a href="#"><i class="fa fa-chevron-up"></i></a>
+            </div><!-- End off scroll up -->
+            
+            
+            <footer id="footer" class="footer bg-black">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <nav class="navbar navbar-default bootsnav footer-menu no-background">
+                                <div class="container">  
+
+                                    <!-- Start Atribute Navigation -->
+                                    <div class="attr-nav">
+                                        <ul>
+                                            <li>
+                                                <a href="https://github.com/Exrick/xpay" target="_blank" title="Github">
+                                                    <i class="fa fa-github" style="font-size:21px"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="http://blog.exrick.cn" target="_blank" title="作者博客">
+                                                    <i class="fa fa-user-circle" style="font-size:18px"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a>
+                                                    <i class="fa fa-qrcode" style="font-size:19px" title="免费交流群 562962309" data-container="body" data-toggle="popover" data-placement="top"
+                                                        data-html="true" data-content="<img src='assets/images/qq-qr.png' width='150'>" data-trigger="hover"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- End Atribute Navigation -->
+
+
+                                    <!-- Start Header Navigation -->
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-footer">
+                                            <i class="fa fa-bars"></i>
+                                        </button>
+                                        <a class="navbar-brand" href="index"><img src="assets/images/footer-logo.png" class="logo" alt=""></a>
+                                    </div>
+                                    <!-- End Header Navigation -->
+
+                                    <!-- navbar menu -->
+                                    <div class="collapse navbar-collapse" id="navbar-footer">
+                                        <ul class="nav navbar-nav navbar-center">
+                                            <li><a href="index">首页</a></li>
+                                            <li><a href="pay">支付体验</a></li>
+                                            <li><a href="thanks">捐赠名单</a></li>
+                                            <li><a href="http://xmall.exrick.cn" target="_blank">XMall商城</a></li>
+                                            <li><a href="http://xboot.exrick.cn" target="_blank">XBoot开发平台</a></li>
+                                            <li><a href="https://github.com/Exrick/xpay" target="_blank">开发教程</a></li>
+                                        </ul>
+                                    </div><!-- /.navbar-collapse -->
+                                </div>   
+                            </nav>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="col-md-12">
+                            <div class="main_footer text-center p-top-40 p-bottom-30">
+                                <p class="wow fadeInRight" data-wow-duration="1s">
+                                    <a href="http://blog.exrick.cn/" target="_blank">xpay.exrick.cn </a> ©2017-Present. All Rights Reserved
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+
+        <!-- JS includes -->
+
+        <!--<script src="assets/js/vendor/jquery-1.11.2.min.js"></script>-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <!--<script src="assets/js/vendor/bootstrap.min.js"></script>-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+        <!--<script src="assets/js/jquery.magnific-popup.js"></script>-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.1/jquery.magnific-popup.min.js"></script>
+        <!--<script src="assets/js/jquery.easing.1.3.js"></script>-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.compatibility.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.0/js/swiper.jquery.min.js"></script>
+        <script src="assets/js/jquery.collapse.js"></script>
+        <script src="assets/js/bootsnav.js"></script>
+
+        <script src="assets/js/plugins.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script src="assets/js/jquery.cookie.js"></script>
+
+    </body>
+    <script>
+        $("[data-toggle='popover']").popover();
+
+        var money=$.cookie('money');
+        if(money==""||money==null){
+            window.location.href="/";
+        }
+        $("#money").html("￥"+money);
+
+        function submit1(){
+            window.location.href="/thanks";
+        }
+
+        function submit2(){
+            window.location.href="/pay";
+        }
+       
+    </script>
+</html>

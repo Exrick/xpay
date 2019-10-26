@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>支付订单编辑</title>
+    <meta name="description" content="XPay个人收款支付系统 无需签约 无需第三方SDK 完全免费">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mui/3.7.1/css/mui.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/mui.picker.min.css" />
+    <style>
+        .mui-card-header>img:first-child {
+            font-size: 0;
+            line-height: 0;
+            float: left;
+            width: 34px;
+            height: 30px;
+            width: 166px;
+            margin: auto;
+        }
+
+        .mui-btn-my {
+            color: #fff;
+            border: 1px solid #007aff;
+            background-color: #007aff;
+            width: 90%;
+        }
+
+        .fake {
+            padding: 8px 15px 0 15px;
+            height: 45px;
+            font-size: 15px;
+            color: #7e7777;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+<form class="mui-input-group">
+    <div class="mui-card-header">
+        <img src="https://i.loli.net/2018/10/08/5bbaf3af87091.png">
+    </div>
+    <input type="text" id="id" hidden>
+    <input type="text" id="testEmail" hidden>
+    <div class="mui-input-row fake" id="fake">
+        抱歉！由于您是假管理，不具备所有字段更改权限
+    </div>
+    <div class="mui-input-row">
+        <label>用户昵称</label>
+        <input type="text" id="nickName" class="mui-input-clear" placeholder="">
+    </div>
+    <div class="mui-input-row">
+        <label>捐赠金额</label>
+        <input type="text" id="money" class="mui-input-clear" placeholder="">
+    </div>
+    <div class="mui-input-row">
+        <label>支付方式</label>
+        <input type="text" id="payType" class="mui-input-clear" placeholder="">
+    </div>
+    <div class="mui-input-row">
+        <label>支付标识号</label>
+        <input type="text" id="payNum" class="mui-input-clear" placeholder="" disabled>
+    </div>
+    <div class="mui-input-row">
+        <label>移动端</label>
+        <input type="text" id="mobile" class="mui-input-clear" placeholder="" disabled>
+    </div>
+    <div class="mui-input-row">
+        <label>自定义金额</label>
+        <input type="text" id="custom" class="mui-input-clear" placeholder="" disabled>
+    </div>
+    <div class="mui-input-row">
+        <label>留言</label>
+        <input type="text" id="info" class="mui-input-clear" placeholder="">
+    </div>
+    <div class="mui-input-row">
+        <label>通知邮箱</label>
+        <input type="text" id="email" class="mui-input-clear" placeholder="">
+    </div>
+    <div class="mui-input-row">
+        <label>支付时间</label>
+        <input type="text" id="time" class="mui-input-clear" placeholder="" onclick="selectTime()">
+    </div>
+    <div class="mui-input-row">
+        <label>状态</label>
+        <input type="text" id="state" class="mui-input-clear" placeholder="" disabled>
+    </div>
+    <div class="mui-button-row">
+        <button type="button" class="mui-btn mui-btn-my" onclick="confirm()">确认修改</button>
+    </div>
+</form>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mui/3.7.1/js/mui.min.js"></script>
+<script src="assets/js/mui.dtpicker.js"></script>
+<script src="assets/js/mui.picker.all.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+
+    //获取url中的参数
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r != null) return unescape(r[2]); return null; //返回参数值
+    }
+
+    var id=getUrlParam('id');
+    var token=getUrlParam('token');
+    if(id.indexOf('FAKE')>=0){
+        $("#money").attr("disabled","disabled");
+        $("#payType").attr("disabled","disabled");
+        $("#state").attr("disabled","disabled");
+        $("#fake").css('display','block');
+    }
+
+    var time="";
+    $.get('/pay/'+id,
+        {
+            token: token
+        },
+        function (data, status) {
+            if(data.success==true){
+                $("#id").val(id);
+                $("#testEmail").val(data.result.testEmail);
+                $("#mobile").val(data.result.mobile);
+                $("#custom").val(data.result.custom);
+                $("#payNum").val(data.result.payNum);
+                $("#nickName").val(data.result.nickName);
+                $("#money").val(data.result.money);
+                $("#info").val(data.result.info);
+                $("#payType").val(data.result.payType);
+                $("#time").val(data.result.time);
+                time=data.result.time;
+                var state=data.result.state;
+                if(state==0){
+                    $("#state").val('待审核');
+                }else if(state==1){
+                    $("#state").val('审核通过');
+                }else if(state==2){
+                    $("#state").val('已驳回');
+                }else if(state==3){
+                    $("#state").val('通过但不显示');
+                }else if(state==4){
+                    $("#state").val('已扫码');
+                }else{
+                    $("#state").val('其他态');
+                }
+
+                $("#email").val(data.result.email);
+            }else{
+                message(data.message);
+            }
+        });
+
+    var dtPicker = new mui.DtPicker({type: "datetime",//设置日历初始视图模式
+        beginDate: new Date(),//设置开始日期
+        labels: ['年', '月', '日', '小时', '分']//设置默认标签区域提示语
+    });
+
+    function selectTime(){
+        dtPicker.show(function (s) {
+            if(id.indexOf('FAKE')>=0){
+                alert();
+                return;
+            }
+            time=s.value+":00";
+            $("#time").val(time);
+        });
+    }
+
+    function confirm(){
+        if(id.indexOf('FAKE')>=0){
+            mui.confirm('确认提交修改？由于您是假管理提交成功后该链接将失效', null, null, function(e) {
+                if (e.index == 1) {
+                    submit();
+                }
+            });
+        }else{
+            mui.confirm('确认提交修改？', null, null, function(e) {
+                if (e.index == 1) {
+                    submit();
+                }
+            });
+        }
+    }
+
+    function alert(){
+        mui.alert('由于您是假管理，无权限修改此字段', null, null, null);
+    }
+
+    function message(m){
+        mui.toast(m,{ duration:'long', type:'div' })
+    }
+
+    function submit(){
+        $.post('/pay/edit',
+            {
+                id: id,
+                token: token,
+                testEmail:$("#testEmail").val(),
+                payNum:$("#payNum").val(),
+                mobile:$("#mobile").val(),
+                custom:$("#custom").val(),
+                nickName:$("#nickName").val(),
+                money:$("#money").val(),
+                info:$("#info").val(),
+                payType:$("#payType").val(),
+                time:$("#time").val(),
+                email:$("#email").val()
+            },
+            function (data, status) {
+                if(data.success==true){
+                    if(id.indexOf('FAKE')>=0){
+                        window.location.href = "/success";
+                    }
+                    mui.alert('修改成功', null, null, function(e) {
+                        window.location.reload();
+                    });
+                }else{
+                    message(data.message)
+                }
+            });
+    }
+</script>
+</html>
