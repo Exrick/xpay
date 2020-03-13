@@ -142,7 +142,7 @@
 
 - [X-Boot前后端分离开发平台](https://github.com/Exrick/x-boot)
 
-    ![](https://i.loli.net/2018/07/21/5b52e274d2085.png)
+    ![](https://i.loli.net/2020/03/13/rQGAWv1h8VMeIdi.png)
 
 - [XMall微信小程序APP前端 现已开源！](https://github.com/Exrick/xmall-weapp)
     
