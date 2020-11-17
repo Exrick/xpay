@@ -1,4 +1,3 @@
-
 # XPay个人收款支付系统
 [![AUR](https://img.shields.io/badge/GPL-v3-red)](https://github.com/Exrick/xpay/blob/master/License)
 [![](https://img.shields.io/badge/Author-Exrick-orange.svg)](http://blog.exrick.cn)
@@ -80,14 +79,14 @@
 > 最新文档详见源码中的 `文档` 文件夹
 - 用户确认订单，需填写邮箱地址(用于邮件通知)、手机号(用于短信通知)等信息
 
-    ![QQ截图20171230234533.png](https://i.loli.net/2018/07/21/5b52e0e68eb55.png)
+    ![QQ截图20171230234533.png](https://ooo.0o0.ooo/2018/07/21/5b52e0e68eb55.png)
 - 配置你的个人收款码，二维码图片配置在 `src\main\resources\static\assets\qr` 文件夹中，已有 alipay（对应支付宝收款码）、wechat（微信）、qqpay（QQ钱包）文件夹存放相应收款码。可设置固定金额二维码（文件名为“收款金额.png”，例如“1.00.png”）或自定义金额二维码（文件名为“custom.png”），建议分辨率>=180px比例1:1，推荐[二维码美化工具](http://www.wwei.cn/)，对应页面在 `src\main\resources\templates` 中 `alipay.html、wechat.html、qqpay.html`。当然聪明的你还可以在 `pay.html` 和这些中自定义业务逻辑，修改JS代码即可。
 
-    ![QQ截图20171230234548.png](https://i.loli.net/2018/07/21/5b52e1108ab66.png)
+    ![QQ截图20171230234548.png](https://ooo.0o0.ooo/2018/07/21/5b52e1108ab66.png)
 - `application.properties` 配置文件中修改你的管理员邮箱等
 - 下载对应邮箱App，打开支付宝、微信收款语言通知等提醒，收到到款通知后，查看审核邮件，在邮件中根据备注号进行该交易任意人工审核确认操作完成回调，未到账的不用管，系统定时自动处理（默认01:00-08:00定时任务自动关闭系统）
 
-    ![drag1min.png](https://i.loli.net/2018/07/21/5b52e14f9fc08.png) ![drag2min.png](https://i.loli.net/2018/07/21/5b52e14fa3e61.png)
+    ![drag1min.png](https://ooo.0o0.ooo/2018/07/21/5b52e14f9fc08.png) ![drag2min.png](https://ooo.0o0.ooo/2018/07/21/5b52e14fa3e61.png)
 ### 疑问
 - 如何确定收款来自哪笔交易订单？
     - 根据收款码中备注标号与审核邮件中的标识号匹配，详见文档
@@ -95,7 +94,7 @@
     - 最新版系统已加定时任务默认01:00-08:00自动关闭系统（除官方接口7*24自动回调），审核邮件中也提供手动开关链接
 - 为什么不做自动监听挂机App？
     - 迟早被封的为什么要做？...XPay主要面向真正个人如学生群体，也目前成本最低最稳定的方案，免费！
-    - 不想受限制、不想用APP监听、还想免费？请用我这套，哈哈![QQ截图20180721215515.png](https://i.loli.net/2018/07/21/5b533b90bd23b.png)
+    - 不想受限制、不想用APP监听、还想免费？请用我这套，哈哈![QQ截图20180721215515.png](https://ooo.0o0.ooo/2018/07/21/5b533b90bd23b.png)
 ### 市面上一些自动监听回调方案
 - ~~爬支付宝官网~~
 - ~~监听微信网页版、PC版~~
@@ -138,11 +137,11 @@
 ### 作者其他项目推荐
 - [XMall：基于SOA架构的分布式电商购物商城](https://github.com/Exrick/xmall)
 
-    ![QQ截图20171022183906.jpg](https://i.loli.net/2018/07/21/5b52e192366a0.jpg)
+    ![QQ截图20171022183906.jpg](https://ooo.0o0.ooo/2018/07/21/5b52e192366a0.jpg)
 
 - [X-Boot前后端分离开发平台](https://github.com/Exrick/x-boot)
 
-    ![](https://i.loli.net/2020/03/13/rQGAWv1h8VMeIdi.png)
+    ![](https://ooo.0o0.ooo/2020/03/13/rQGAWv1h8VMeIdi.png)
 
 - [XMall微信小程序APP前端 现已开源！](https://github.com/Exrick/xmall-weapp)
     
